@@ -1,0 +1,149 @@
+
+form #newsearch2{
+    margin-top: 30px;
+}
+@media (max-width:1185px)
+{
+.bottom-navbar-menu-container 
+{
+ display: none;
+}
+#newselect
+{
+    padding: 2% 100% !important;
+}
+form #newsearch
+{       
+  padding: 10px 40px!important;
+  
+}
+}
+@media(max-width:1773px)
+{
+    #newselect
+    {
+        padding: 3% 20% !important;
+    } 
+    form #newsearch2
+    {       
+        padding: 10px 40px!important;
+    }
+}
+@media(max-width:773px)
+{
+    #hidediv
+    {
+        display: none;
+    }
+    #newselect
+    {
+        padding: 3% 37% !important;
+        margin-left :0% !important;
+        
+    } 
+    form #newsearch2
+    {       
+        padding: 10px !important;
+    }
+    .newbox
+    {
+        display: none;
+    }
+}
+@media(max-width:476px)
+{
+  
+    #newselect
+    {
+        padding: 3% 35% !important;
+        margin-left :0% !important;
+        
+    } 
+    .sort{
+        display: none;
+    }
+    .show{
+        display: none;
+    }
+   .Blue{
+    display: none;
+   }
+}
+@media(max-width:476px)
+{
+  
+    #newselect
+    {
+        padding: 3% 33% !important;
+        margin-left :0% !important;
+        
+    } 
+   
+}
+@media(max-width:404px)
+{
+  
+    #newselect
+    {
+        padding: 3% 28% !important;
+        margin-left :0% !important;
+        
+    } 
+   
+}
+@media(max-width:336px)
+{
+  
+    #newselect
+    {
+        padding: 3% 27% !important;
+        margin-left :0% !important;
+        
+    } 
+   
+}
+@media(max-width:302px)
+{
+  
+    #newselect
+    {
+        padding: 3% 25% !important;
+        margin-left :0% !important;
+        
+    } 
+   
+}
+@media(max-width:280px)
+{
+  
+    #newselect
+    {
+        padding: 3% 20% !important;
+        margin-left :0% !important;
+        
+    } 
+   
+}
+
+@media(max-width:1356px)
+{
+  #price-value
+  {
+    
+     border: 0px; 
+     padding: 0px;
+}
+#new-box-start{
+    border: 0px; 
+    padding: 0px;
+}
+}
+@media(max-width:1322px)
+{
+    #newselect
+    {
+        
+        margin-top :45px !important;
+        
+    } 
+}

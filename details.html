@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+    <head>
+             
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- *****************Bootstrap CDN********************************* -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Latest compiled JavaScript -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- *******************Font awesome CDN **************************** -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+            integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- ******************Google Fonts********************************** -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Gloock&family=Lobster&family=PT+Serif:ital@1&family=Poppins:ital,wght@1,200&family=Roboto:wght@100;400&family=Rubik&display=swap"
+            rel="stylesheet">
+        <title>JSON example</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+        <!-- Link Swiper's CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+      
+        <link href="crausel.css" rel="stylesheet">
+        <link href="style.css" rel="stylesheet">
+        <link href="style2.css" rel="stylesheet">
+        <link href="details.css" rel="stylesheet">
+    </head>
+    <body>
+    <div id="header-js"></div>
+
+
+    <div id="full-div"></div>
+    
+    <div id="footer"></div>
+
+  
+       <script>
+
+        // get the query string parameters from the URL
+        const params = new URLSearchParams(window.location.search);
+        const productId = Number(params.get("id"));
+
+
+
+details();
+console.log(productId);
+async function details() {
+  const response = await fetch('productData.json');
+  const data = await response.json();
+  const product = data.products.find(product => product.id === productId);
+  let stock = `<i class="fa-solid fa-2x fa-check green"></i> &nbsp; &nbsp; in stock`
+
+document.getElementById("full-div").innerHTML = `
+<div class="comm-padding container-fluid mt-4">
+    <div class="row container10  description-box">
+        <!-- =============================== -->
+
+
+        <div class="d-block img-choose col-md-1" id="img-choose-js">
+            <div class="mt-3"><img src="${product.images[0]}" onclick="showimg('${product.images[0]}')" width="80px" height="80"></div>
+            <div class="mt-3"><img src="${product.images[1]}" onclick="showimg('${product.images[1]}')"width="80" height="80"></div>
+            <div class="mt-3"><img src="${product.images[2]}" onclick="showimg('${product.images[2]}')" width="80" height="80"></div>
+        </div>
+
+        <!-- ============================ -->
+        <div class="col-md-5 " id="main-img">
+             <img src="${product.image}" id="mainimg" height="500px" width="500px">
+        </div>
+
+        <!-- =============================== -->
+        <div class="col-md-6  ">
+          <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Description</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Specification</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Review</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="about-tab" data-bs-toggle="tab" data-bs-target="#about" type="button" role="tab" aria-controls="about" aria-selected="false">Custom Tags</button>
+            </li>
+          </ul>
+          
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+              <!-- Home section content goes here -->
+              <p>${product.description}.</p>
+              <div class="price-tag" style="padding: 20px;">
+                <div style="border-right: 2px solid gray; padding-right: 30px;">
+                  <h5><b class = "red">$ ${product.price}</b><br>
+                    Ex. Tax ${product.total_price}$</h5>
+                </div>
+                <div>
+                     <h6>${product.in_stock ? stock : `<i class="fa-solid fa-2x fa-circle-xmark red"></i> &nbsp;&nbsp; out of stock`}<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${product.brand}</h6>
+                </div>
+                <div>
+                  <img src="img/large_vitalvale.png" alt="" style="border: 1px solid black; padding: 20px;" height="100px" width="100px">
+                </div>
+              </div>
+              <div class="mt-4">
+                <h6>Select list*</h6>
+                <select name="color">
+                    <option value="">Select a color</option>
+                    <option value="red">Red</option>
+                    <option value="green">Green</option>
+                    <option value="yellow">Yellow</option>
+                    <option value="brown">Brown</option>
+                </select>                    
+              </div>
+              <div class="mt-4">
+               <div><h6>Multiple choice*</h6></div> 
+                <div style="display: flex;">
+                <div class="newborder">XS</div>
+                <div class="newborder">S</div>
+                <div class="newborder">ML</div>
+                <div class="newborder">XL</div>
+              </div>
+            </div>
+              
+            <div class="mt-4"> 
+             <div><h6>Single choice( with images)*</h6></div> 
+             <div class="circle-container">
+              <div class="circle circle-1"></div>
+              <div class="circle circle-2"></div>
+              <div class="circle circle-3"></div>
+          </div>
+            </div>
+            <div>
+              <label for="name">Text *</label>
+              <div>
+                <input type="text" id="name" name="name"></div>
+              </div>
+              <div> 
+                <label for="message">Text area*</label>
+                <div>
+                 <textarea id="message" name="message" rows="5"></textarea>
+                 </div>
+                 </div>
+                 <div>
+                  <h2>File:</h2>
+                   <p id="file-name"></p>
+                   <a href="#" id="file-upload-link">
+                    <input type="file" id="file-upload" name="file-upload">
+                         </a>
+                      </div>
+
+                         <div>
+                          <div>
+                          <label class="mt-3" for="date">Date*</label></div>
+                        <div> <input type="date" id="date" name="date"></div>
+
+                       <!-- Time Input Field -->
+                      <div>	<label class="mt-3" for="time">Time*</label></div>
+                       <div>	<input type="time" id="time" name="time"></div>
+
+                     <!-- Date-Time Input Field -->
+                   <div>	<label class="mt-3" for="datetime">Date and Time*</label></div>
+                       <div>	<input type="datetime-local" id="datetime" name="datetime"></div>
+                        </div>
+
+
+            <div class="product mt-4">
+              <div class="quantity">
+                  <button>-</button>
+                  <input type="text" value="1">
+                  <button>+</button>
+              </div>
+              <button onclick="getProductData(event,${product.id},'cart')" class="add-to-cart"><i class="fa-solid fa-cart-shopping"></i> &nbsp;&nbsp;&nbsp;&nbsp;Add to Cart</button>
+              <button class="buy-now"> $ &nbsp;&nbsp;&nbsp;Buy Now</button>
+              <button class="question-mark">?</button>
+          </div>
+          <div class="mt-4" style="display: flex;">
+            <div><p><i class="fa-solid fa-heart"></i> &nbsp; Add to Wishlist&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+            <div><span><i class="fa-solid fa-right-left"></i> &nbsp;Compare this Product</span></div>
+          </div>
+
+          <div  class="mt-2" style="display: flex;">
+            <div><i class="fa-brands fa-facebook"></i>&nbsp;&nbsp;</div><div><i class="fa-solid fa-square-twitter">&nbsp;&nbsp;</i></div><i class="fa-solid fa-square-pinterest">&nbsp;&nbsp;</i><div><i class="fa-solid fa-envelope"></i></div><div>&nbsp;&nbsp;+90</div>
+          </div>
+            </div>
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+              <!-- Profile section content goes here -->
+              <div>
+                    
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Specifications</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>${product.specifications.Type}</td>
+                    </tr>
+                    <tr>
+                      <td>${product.specifications.other1}</td>
+                    </tr>
+                    <tr>
+                      <td>${product.specifications.other2}</td>
+                    </tr>
+                    <tr>
+                      <td>${product.specifications.other3}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                
+              </div>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam totam veritatis, cumque temporibus esse voluptatem debitis. Sapiente ratione pariatur possimus impedit, alias corporis ducimus quae voluptate recusandae quia atque obcaecati.</p>
+              <div class="price-tag" style="padding: 20px;">
+                <div style="border-right: 2px solid gray; padding-right: 30px;">
+                  <h5><b class = "red">$ ${product.price}</b><br>
+                    Ex. Tax ${product.total_price}$</h5>
+                </div>
+                <div>
+                     <h6>${product.in_stock ? stock : `<i class="fa-solid fa-2x fa-circle-xmark red"></i> &nbsp;&nbsp; out of stock`}<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ${product.brand}</h6>
+                </div>
+                <div>
+                  <img src="img/large_vitalvale.png" alt="" style="border: 1px solid black; padding: 20px;" height="100px" width="100px">
+                </div>
+              </div>
+              <div class="mt-4">
+                <h6>Select list*</h6>
+                <select name="color">
+                    <option value="">Select a color</option>
+                    <option value="red">Red</option>
+                    <option value="green">Green</option>
+                    <option value="yellow">Yellow</option>
+                    <option value="brown">Brown</option>
+                </select>                    
+              </div>
+              <div class="mt-4">
+               <div><h6>Multiple choice*</h6></div> 
+                <div style="display: flex;">
+                <div class="newborder">XS</div>
+                <div class="newborder">S</div>
+                <div class="newborder">ML</div>
+                <div class="newborder">XL</div>
+              </div>
+            </div>
+              
+            <div class="mt-4"> 
+             <div><h6>Single choice( with images)*</h6></div> 
+             <div class="circle-container">
+              <div class="circle circle-1"></div>
+              <div class="circle circle-2"></div>
+              <div class="circle circle-3"></div>
+          </div>
+            </div>
+
+            <div class="product mt-4">
+              <div class="quantity">
+                  <button>-</button>
+                  <input type="text" value="1">
+                  <button>+</button>
+              </div>
+              <button onclick="getProductData(event,${product.id},'cart')" class="add-to-cart"><i class="fa-solid fa-cart-shopping"></i> &nbsp;&nbsp;&nbsp;&nbsp;Add to Cart</button>
+              <button class="buy-now"> $ &nbsp;&nbsp;&nbsp;Buy Now</button>
+              <button class="question-mark">?</button>
+          </div>
+          <div class="mt-4" style="display: flex;">
+            <div><p><i class="fa-solid fa-heart"></i> &nbsp; Add to Wishlist&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+            <div><span><i class="fa-solid fa-right-left"></i> &nbsp;Compare this Product</span></div>
+          </div>
+
+          <div  class="mt-2" style="display: flex;">
+            <div><i class="fa-brands fa-facebook"></i>&nbsp;&nbsp;</div><div><i class="fa-solid fa-square-twitter">&nbsp;&nbsp;</i></div><i class="fa-solid fa-square-pinterest">&nbsp;&nbsp;</i><div><i class="fa-solid fa-envelope"></i></div><div>&nbsp;&nbsp;+90</div>
+            </div>
+            </div>
+            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+              <!-- Contact section content goes here -->
+              <div class="review">
+                <p class="review-text">${product.reviews[0].comment}</p>
+                <p> ratings :${product.reviews[0].rating}/5</p>
+                <p class="review-author">-- ${product.reviews[0].author} </p>
+              </div>
+              <div class="review">
+                <p class="review-text">${product.reviews[1].comment}</p>
+                <p> ratings :${product.reviews[1].rating}/5</p>
+                <p class="review-author">-- ${product.reviews[1].user} </p>
+              </div>
+              
+              
+              
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam totam veritatis, cumque temporibus esse voluptatem debitis. Sapiente ratione pariatur possimus impedit, alias corporis ducimus quae voluptate recusandae quia atque obcaecati.</p>
+              <div class="price-tag" style="padding: 20px;">
+                <div style="border-right: 2px solid gray; padding-right: 30px;">
+                  <h5><b class = "red">$ ${product.price}</b><br>
+                    Ex. Tax ${product.total_price}$</h5>
+                </div>
+                <div>
+                     <h6>${product.in_stock ? stock : `<i class="fa-solid fa-2x fa-circle-xmark red"></i> &nbsp;&nbsp; out of stock`}<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${product.brand}</h6>
+                </div>
+                <div>
+                  <img src="img/large_vitalvale.png" alt="" style="border: 1px solid black; padding: 20px;" height="100px" width="100px">
+                </div>
+              </div>
+              <div class="mt-4">
+                <h6>Select list*</h6>
+                <select name="color">
+                    <option value="">Select a color</option>
+                    <option value="red">Red</option>
+                    <option value="green">Green</option>
+                    <option value="yellow">Yellow</option>
+                    <option value="brown">Brown</option>
+                </select>                    
+              </div>
+              <div class="mt-4">
+               <div><h6>Multiple choice*</h6></div> 
+                <div style="display: flex;">
+                <div class="newborder">XS</div>
+                <div class="newborder">S</div>
+                <div class="newborder">ML</div>
+                <div class="newborder">XL</div>
+              </div>
+            </div>
+              
+            <div class="mt-4"> 
+             <div><h6>Single choice( with images)*</h6></div> 
+             <div class="circle-container">
+              <div class="circle circle-1"></div>
+              <div class="circle circle-2"></div>
+              <div class="circle circle-3"></div>
+          </div>
+            </div>
+
+            <div class="product mt-4">
+              <div class="quantity">
+                  <button>-</button>
+                  <input type="text" value="1">
+                  <button>+</button>
+              </div>
+              <button onclick="getProductData(event,${product.id},'cart')" class="add-to-cart"><i class="fa-solid fa-cart-shopping"></i> &nbsp;&nbsp;&nbsp;&nbsp;Add to Cart</button>
+              <button class="buy-now"> $ &nbsp;&nbsp;&nbsp;Buy Now</button>
+              <button class="question-mark">?</button>
+          </div>
+          <div class="mt-4" style="display: flex;">
+            <div><p><i class="fa-solid fa-heart"></i> &nbsp; Add to Wishlist&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+            <div><span><i class="fa-solid fa-right-left"></i> &nbsp;Compare this Product</span></div>
+          </div>
+
+          <div  class="mt-2" style="display: flex;">
+            <div><i class="fa-brands fa-facebook"></i>&nbsp;&nbsp;</div><div><i class="fa-solid fa-square-twitter">&nbsp;&nbsp;</i></div><i class="fa-solid fa-square-pinterest">&nbsp;&nbsp;</i><div><i class="fa-solid fa-envelope"></i></div><div>&nbsp;&nbsp;+90</div>
+          </div>
+            </div>
+
+            <div class="tab-pane fade  contentss" id="about" role="tabpanel" aria-labelledby="about-tab">
+              <!-- About section content goes here -->
+              <div> <h6>${product.custom_tabs[0].title}</h6></div>
+              <p> ${product.custom_tabs[0].content}</p>
+              <div> <h6>${product.custom_tabs[1].title}</h6></div>
+              <p> ${product.custom_tabs[1].content}</p>
+            <div class="price-tag" style="padding: 20px;">
+              <div style="border-right: 2px solid gray; padding-right: 30px;">
+                <h5><b class = "red">$ ${product.price}</b><br>
+                Ex. Tax ${product.total_price}$</h5>
+            </div>
+            <div>
+                 <h6>${product.in_stock ? stock : `<i class="fa-solid fa-2x fa-circle-xmark red"></i> &nbsp;&nbsp; out of stock`}<br>
+                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${product.brand}</h6>
+            </div>
+            <div>
+                <img src="img/large_vitalvale.png" alt="" style="border: 1px solid black; padding: 20px;" height="100px" width="100px">
+              </div>
+            </div>
+            <div class="mt-4">
+              <h6>Select list*</h6>
+              <select name="color">
+                  <option value="">Select a color</option>
+                  <option value="red">Red</option>
+                  <option value="green">Green</option>
+                  <option value="yellow">Yellow</option>
+                  <option value="brown">Brown</option>
+              </select>                    
+            </div>
+            <div class="mt-4">
+             <div><h6>Multiple choice*</h6></div> 
+              <div style="display: flex;">
+              <div class="newborder">XS</div>
+              <div class="newborder">S</div>
+              <div class="newborder">ML</div>
+              <div class="newborder">XL</div>
+            </div>
+          </div>
+            
+          <div class="mt-4"> 
+           <div><h6>Single choice( with images)*</h6></div> 
+           <div class="circle-container">
+            <div class="circle circle-1"></div>
+            <div class="circle circle-2"></div>
+            <div class="circle circle-3"></div>
+        </div>
+          </div>
+
+          <div class="product mt-4">
+            <div class="quantity">
+                <button>-</button>
+                <input type="text" value="1">
+                <button>+</button>
+            </div>
+            <button onclick="getProductData(event,${product.id},'cart')" class="add-to-cart"><i class="fa-solid fa-cart-shopping"></i> &nbsp;&nbsp;&nbsp;&nbsp;Add to Cart</button>
+            <button class="buy-now"> $ &nbsp;&nbsp;&nbsp;Buy Now</button>
+            <button class="question-mark">?</button>
+        </div>
+        <div class="mt-4" style="display: flex;">
+          <div><p><i class="fa-solid fa-heart"></i> &nbsp; Add to Wishlist&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+          <div><span><i class="fa-solid fa-right-left"></i> &nbsp;Compare this Product</span></div>
+        </div>
+
+        <div  class="mt-2" style="display: flex;">
+          <div><i class="fa-brands fa-facebook"></i>&nbsp;&nbsp;</div><div><i class="fa-solid fa-square-twitter">&nbsp;&nbsp;</i></div><i class="fa-solid fa-square-pinterest">&nbsp;&nbsp;</i><div><i class="fa-solid fa-envelope"></i></div><div>&nbsp;&nbsp;+90</div>
+        </div>
+          </div>
+            </div>
+            <div class="tab-pane fade" id="services" role="tabpanel" aria-labelledby="services-tab">
+              <!-- Services section content goes here -->
+              <h2>Services</h2>
+              <p>This is the services section.</p>
+            </div>
+          </div> 
+        </div>
+        </div>
+      </div>
+          </div>
+      </div>
+    </div>
+    <div class="tag-div container10">
+      <h4>Tags :</h4><span class="tag">${product.tags[0]}</span>
+        <span class="tag">Accessories</span>
+        <span class="tag">${product.tags[2]}</span>
+        <span class="tag">${product.tags[1]}</span>
+        <span class="tag">Electronics</span>
+        <span class="tag">Food</span>
+
+    </div>
+`;
+
+  
+}
+
+
+
+function showimg(imageSrc) {
+  document.getElementById("mainimg").src = imageSrc;
+}
+       </script>
+      <script src="footer.js"></script>
+      <script src="header.js"></script>
+      <!-- <script src="crausel.js"></script> -->
+     <script src="seach.js"></script>
+     <script src="script.js" ></script>
+    </body>
+</html>
