@@ -213,7 +213,7 @@
   <div>
     <a class="left-menu-icon-container">
       <div class="hamburgur"><i class="fa-solid fa-bars"></i></div>
-      <p>All departments</p>
+      <p id = "all-depart" >All departments</p>
       <div class="sale-container">Sale</div>
     </a>
   </div>

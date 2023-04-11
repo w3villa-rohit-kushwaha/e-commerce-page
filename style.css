@@ -1407,3 +1407,15 @@ position: absolute;
   padding-left: 320px;
   border: 1px solid black;
 }
+#hiddenDiv-depart
+{
+  position: absolute;
+  top: 32%;
+  left: 8%;
+  z-index: 9999;
+  width: 400px;
+  height: 200px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  padding: 20px
+}
