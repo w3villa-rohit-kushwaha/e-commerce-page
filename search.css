@@ -148,3 +148,19 @@ form #newsearch
         
     } 
 }
+@media(max-width:768px)
+{
+    #searcheditem 
+    {
+        justify-content: center;
+    }
+}
+.card-img-top
+{
+    object-fit: cover;
+}
+.imggal
+{
+    object-fit:fill;
+}
+

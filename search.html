@@ -72,7 +72,7 @@
             </div>
             <div id="elect">
               <div style="display: flex; align-items: center;">
-                <img src="img/bag.jpg" height="70px" width="70px"><span>Electronics</span>
+                <img src="img/bag.jpg" class="imggal" height="70px" width="70px"><span>Electronics</span>
               </div>
             </div>
             <hr class="hhhhw">
@@ -123,7 +123,7 @@
             </div>
             </div>
             <div class="col-md-9">
-              <div class="container">
+              <div class="container-fluid">
                 <div class="row">
                   <div class="col-md-6">
                 <form>
@@ -267,14 +267,14 @@ fetch("productData.json")
   .catch(error => console.error(error));
 
   function displayProduct(product) {
-  document.getElementById("searcheditem").innerHTML = `   <a href="details.html?id=${product.id}"> <a href="details.html?id=${product.id}">  <div class="card m-4" style="width:310px">
+  document.getElementById("searcheditem").innerHTML = ` <a href="details.html?id=${product.id}">  <div class="card m-4" style="width:310px">
       <div class="badge-overlay">
         <span class="top-left badge"></span>
       </div>
-      <img src=${product.image} class="card-img-top" width="100%" height="300px">
+      <img src=${product.image} class="card-img-top" width="100%" height="300px"></a>
       <div class="card-body pt-0 px-0">
         <div class="d-flex flex-row justify-content-between p-3 mid">
-          <a class="d-flex flex-column text-muted mb-1">
+          <a class="d-flex flex-column text-muted mb-1" id ="categogy-div">
             ${product.category}
           </a>
           <p class="d-flex flex-column text-muted mb-2">${product.brand}</p>
@@ -284,24 +284,23 @@ fetch("productData.json")
           <p> $${product.price}&nbsp; &nbsp;&nbsp;&nbsp;<s>$${product.preprice}</s></p>
         </div>
         <div class="add mx-3 mt-3 d-block">
-          <input type="number" class="quantity__input" value="1">
+          <input type="number" class="quantity__input" style ="    padding-bottom: 2px;
+    padding-top: 7px;" value="1">
           <button type="button" onclick="getProductData(event, ${product.id},'cart')" class="btn btn-danger btn-block mb-1">ADD TO CART</button>
           &nbsp; &nbsp; &nbsp;
           <i class="fa-regular fa-heart mb-2" onclick="getProductData(event,${product.id},'wishlist')"></i> &nbsp; &nbsp;
           <i class="fa-solid  fa-arrow-right-arrow-left"></i>
         </div>
         <div class="d-flex flex-row justify-content-between p-3 mid">
-          <p class="d-flex flex-column mb-1">
-            <i class="fa-solid fa-dollar" style="color: lightgreen;"></i>Buy Now
+          <p class="mb-1">
+            <i class="fa-solid fa-dollar" style="color: lightgreen;"></i> &nbsp;&nbsp;Buy Now
           </p>
-          <p class="d-flex flex-column mb-2">
-            <i class="fa-solid fa-question" style="color: red;"></i>Question
+          <p class="mb-2">
+            <i class="fa-solid fa-question" style="color: red;"></i>&nbsp;&nbsp;Question
           </p>
         </div>
       </div>
-    </div>
-    </a>
-    </a>`;
+    </div>`;
 }
 
 function displayMatches(matches) {
@@ -316,12 +315,11 @@ function displayMatches(matches) {
   console.log(matches.length);
   for(let i=0;i<matches.length;i++)
   {
-    a.innerHTML +=`  <a href="details.html?id=${matches[i].id}"><a href="details.html?id=${matches[i].id}"><div class="card m-4" style="width:310px">
+    a.innerHTML += ` <a href="details.html?id=${matches[i].id}">  <div class="card m-4" style="width:310px">
       <div class="badge-overlay">
         <span class="top-left badge"></span>
       </div>
-
-      <img src=${matches[i].image} class="card-img-top" width="100%" height="300px">
+      <img src=${matches[i].image} class="card-img-top" width="100%" height="300px"></a>
       <div class="card-body pt-0 px-0">
         <div class="d-flex flex-row justify-content-between p-3 mid">
           <a class="d-flex flex-column text-muted mb-1">
@@ -334,25 +332,23 @@ function displayMatches(matches) {
           <p> $${matches[i].price}&nbsp; &nbsp;&nbsp;&nbsp;<s>$${matches[i].preprice}</s></p>
         </div>
         <div class="add mx-3 mt-3 d-block">
-          <input type="number" class="quantity__input" value="1">
+          <input type="number" class="quantity__input" style ="    padding-bottom: 2px;
+    padding-top: 7px;" value="1">
           <button type="button" onclick="getProductData(event, ${matches[i].id},'cart')" class="btn btn-danger btn-block mb-1">ADD TO CART</button>
           &nbsp; &nbsp; &nbsp;
           <i class="fa-regular fa-heart mb-2" onclick="getProductData(event,${matches[i].id},'wishlist')"></i> &nbsp; &nbsp;
           <i class="fa-solid  fa-arrow-right-arrow-left"></i>
         </div>
         <div class="d-flex flex-row justify-content-between p-3 mid">
-          <p class="d-flex flex-column mb-1">
-            <i class="fa-solid fa-dollar" style="color: lightgreen;"></i>Buy Now
+          <p class="mb-1">
+            <i class="fa-solid fa-dollar" style="color: lightgreen;"></i> &nbsp;&nbsp;Buy Now
           </p>
-          <p class="d-flex flex-column mb-2">
-            <i class="fa-solid fa-question" style="color: red;"></i>Question
+          <p class="mb-2">
+            <i class="fa-solid fa-question" style="color: red;"></i>&nbsp;&nbsp;Question
           </p>
         </div>
       </div>
-    </div>
-    </a>
-    </a>
-   `;
+    </div>`;
   }
 }
  const priceRange = document.getElementById("price-range");

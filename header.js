@@ -256,7 +256,6 @@
 
 </header>
 
-
 <!-- NAVBAR 1 -->
 <!-- NAVBAR-MOBILE-VIEW -->
 <div class=" navbar-expand-lg  plr bg-primary hidenav" >

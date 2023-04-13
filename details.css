@@ -315,7 +315,7 @@ th {
   {
     /* padding-left: 0px; */
     padding-right: 78px;
-    text-align: center;
+    /* text-align: center; */
   }
  .articles{
     margin-left: -14%;
@@ -384,4 +384,38 @@ th {
     padding-left: 0%;
     padding-right: 0%;
   }
+}
+#img-choose-js1
+{
+  border: 1px solid rgb(19, 0, 0);
+}
+ 
+@media only screen and (max-width:1260px){
+  div#img-choose-js{
+      display: flex !important;
+      justify-content: space-between;
+    }
+    #img-choose-js .sss{
+      padding-left: 50%;
+      padding-right: 50%;
+    } 
+    #img-choose-js1 img{
+      text-align: center;
+    }
+}
+
+@media only screen and (max-width:769px){
+  #img-choose-js .sss{
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+
+}
+@media (max-width: 1545px)
+{
+.container10 {
+     padding-left: 0px; 
+    padding-right: 0px;
+     text-align: none; 
+}
 }
