@@ -688,7 +688,7 @@ fetch("productData.json")
     const product = data.products[i];
     
     // Create a new HTML element for each product and add it to the product list
-
+    
     const productElement = document.createElement("div");
        
        productElement.innerHTML = `
@@ -1196,3 +1196,81 @@ function loadContent(category) {
 
 //for default all category active 
 loadContent("all");
+
+
+
+// hover for index page 
+const allDepart = document.getElementById("all-depart");
+const subMenu = document.querySelector(".sub-menu");
+let isSubMenuHovered = false;
+let isDropdownHovered = false;
+
+allDepart.addEventListener("mouseenter", () => {
+  subMenu.style.display = "block";
+});
+
+allDepart.addEventListener("mouseleave", () => {
+  setTimeout(() => {
+    if (!isSubMenuHovered && !isDropdownHovered) {
+      subMenu.style.display = "none";
+      dropdownMenus.forEach(menu => {
+        menu.style.display = 'none';
+      });
+    }
+  }, 500);
+});
+
+subMenu.addEventListener("mouseenter", () => {
+  isSubMenuHovered = true;
+});
+
+subMenu.addEventListener("mouseleave", () => {
+  isSubMenuHovered = false;
+  setTimeout(() => {
+    if (!isSubMenuHovered && !isDropdownHovered) {
+      subMenu.style.display = "none";
+      dropdownMenus.forEach(menu => {
+        menu.style.display = 'none';
+      });
+    }
+  }, 500);
+});
+
+const dropdownLinks = document.querySelectorAll('.dropdown-link');
+const dropdownMenus = document.querySelectorAll('.dropdown-menu');
+
+for (let i = 0; i < dropdownLinks.length; i++) {
+  dropdownLinks[i].addEventListener('mouseenter', function() {
+    dropdownMenus[i].style.display = 'block';
+    isDropdownHovered = true;
+  });
+
+  dropdownLinks[i].addEventListener('mouseleave', function() {
+    dropdownMenus[i].style.display = 'none';
+    isDropdownHovered = false;
+    setTimeout(() => {
+      if (!isSubMenuHovered && !isDropdownHovered) {
+        subMenu.style.display = "none";
+        dropdownMenus.forEach(menu => {
+          menu.style.display = 'none';
+        });
+      }
+    }, 500);
+  });
+  
+  dropdownMenus[i].addEventListener('mouseenter', function() {
+    isDropdownHovered = true;
+  });
+
+  dropdownMenus[i].addEventListener('mouseleave', function() {
+    isDropdownHovered = false;
+    setTimeout(() => {
+      if (!isSubMenuHovered && !isDropdownHovered) {
+        subMenu.style.display = "none";
+        dropdownMenus.forEach(menu => {
+          menu.style.display = 'none';
+        });
+      }
+    }, 500);
+  });
+}

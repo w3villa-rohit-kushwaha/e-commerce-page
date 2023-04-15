@@ -35,7 +35,14 @@
         
       <!-- header.js file id import here -->
      <div id="header-js"></div>
-
+     <nav class="breadcrumbs container10 mt-3">
+      <ul class="d-flex">
+        <li><i class="fa-solid fa-house"></i>&nbsp;&nbsp;<i class="fa-solid fa-arrow-right"></i>&nbsp;&nbsp;</li>
+        <li>Search Page</li>
+      </ul>
+    </nav>
+   
+    
      <div  id="searchfull" class="container10" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
         <div class="container-fluid ">
           <div class="row">
@@ -266,6 +273,43 @@ fetch("productData.json")
   })
   .catch(error => console.error(error));
 
+// let id = parseInt(localStorage.getItem("productId"));
+
+// fetch("productData.json")
+//   .then(response => response.json())
+//   .then(data => {
+//     console.log(data);
+//     const product = data.products.find(product => product.id === id);
+//     if (product) {
+//       // add the product to the most recent products array
+//       let mostRecentProducts = JSON.parse(localStorage.getItem("mostRecentProducts")) || [];
+//       if (mostRecentProducts.length === 5) {
+//         mostRecentProducts.pop();
+//       }
+//       mostRecentProducts.unshift(product.id);
+//       localStorage.setItem("mostRecentProducts", JSON.stringify(mostRecentProducts));
+      
+//       displayProduct(product);
+//     } else {
+//       const matchesString = localStorage.getItem("productId2");
+//       const matches = JSON.parse(matchesString);
+      
+//       // create the recent search products array if it doesn't exist
+//       let recentSearchProducts = JSON.parse(localStorage.getItem("recentSearchProducts")) || [];
+      
+//       // add the matches to the recent search products array
+//       if (recentSearchProducts.length === 5) {
+//         recentSearchProducts.pop();
+//       }
+//       recentSearchProducts.unshift(matches);
+//       localStorage.setItem("recentSearchProducts", JSON.stringify(recentSearchProducts));
+      
+//       displayMatches(matches);
+//     }
+//   })
+//   .catch(error => console.error(error));
+
+
   function displayProduct(product) {
   document.getElementById("searcheditem").innerHTML = ` <a href="details.html?id=${product.id}">  <div class="card m-4" style="width:310px">
       <div class="badge-overlay">
@@ -311,8 +355,6 @@ function displayMatches(matches) {
     return;
   }
 
-
-  console.log(matches.length);
   for(let i=0;i<matches.length;i++)
   {
     a.innerHTML += ` <a href="details.html?id=${matches[i].id}">  <div class="card m-4" style="width:310px">
@@ -358,6 +400,10 @@ function displayMatches(matches) {
         const value = priceRange.value;
         priceValue.textContent = `$`+value;
       });
+
+
+
+
 </script>
     <!-- footer.js import here -->
      <div id="footer"></div>
@@ -366,5 +412,6 @@ function displayMatches(matches) {
      <script src="footer.js" ></script>
      <script src="seach.js"></script>
      <script src="script.js"></script>
+     <script src="breadcrumbs.js"></script>
 </body>
 </html>

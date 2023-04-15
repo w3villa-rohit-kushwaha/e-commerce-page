@@ -204,54 +204,289 @@
 </section>
 
 
+<div id="container" class="fixed-bottom-navbar mr-4">
+  <div class="bottom-navbar-menu-container container10">
+    <div class="nav-menu-container">
+      <div>
+        <a class="left-menu-icon-container">
+          <div class="hamburgur"><i class="fa-solid fa-bars"></i></div>
+          <p id="all-depart">All departments</p>
+          <div class="sale-container">Sale</div>
+        </a>
+        <div id="sub-menu" class="sub-menu">
+         <a href="#" class="dropdown-link"><h6 class="depart1">Shop by Category &nbsp; &nbsp; &nbsp;<i class="fa-solid fa-caret-right"></i></h6></a>
+          <div class="dropdown-menu">
+           <!-- Add your dropdown menu content here -->
+           <div class="category-div-dropdown">
+           <div><h4>Fashion</h4>
+           <div class="category-item">Women's Clothing</div>
+           <div class="category-item">Men's Clothing</div>
+           <div class="category-item">Kid's Clothing</div>
+           <div class="category-item">Accessories</div>
+           <div class="category-item">Jewelry</div>
+           </div>
 
-<div id=" container fixed-bottom-navbar mr-4">
-<div class="bottom-navbar-menu-container container10">
-<!-- 1. menu  -->
+           <div><h4>Beauty</h4>
+             <div class="category-item">Makeup</div>
+             <div class="category-item">Skincare</div>
+              <div class="category-item">Haircare</div>
+              <div class="category-item">Fragrance</div>
+              <div class="category-item">Tools & Accessories</div>
+           </div>
 
-<div class="nav-menu-container">
-  <div>
-    <a class="left-menu-icon-container">
-      <div class="hamburgur"><i class="fa-solid fa-bars"></i></div>
-      <p id = "all-depart" >All departments</p>
-      <div class="sale-container">Sale</div>
-    </a>
-  </div>
-  <div>
-    <a>
-      <p>multilevel</p>
-    </a>
-  </div>
+           <div><h4>Electronics</h4>
+           <div class="category-item">Computers & Laptops</div>
+           <div class="category-item">Smartphones & Tablets</div>
+            <div class="category-item">Home Entertainment</div>
+            <div class="category-item">Photography</div>
+            <div class="category-item">Gaming </div>
+         </div>
 
-  <div class="mega-menu-container">
-    <a>
-      <p>Mega Menu</p>
-      <div class="new-container">New</div>
-    </a>
-  </div>
-  <div>
-    <a>
-      <p>custom </p>
-    </a>
+           </div>
+
+
+           <div class="category-div-dropdown">
+           <div><h4>Health</h4>
+             <div class="category-item">Vitamins & Supplements</div>
+             <div class="category-item">Fitness Equipment</div>
+              <div class="category-item">Personal Care</div>
+              <div class="category-item">Medical Supplies & Equipment</div>
+              <div class="category-item">Healthy Snacks & Foods</div>
+           </div>
+           <div><h4>Footwear</h4>
+             <div class="category-item">Sneakers</div>
+             <div class="category-item">Sandals</div>
+              <div class="category-item">Boots</div>
+              <div class="category-item">Athletic Shoes</div>
+              <div class="category-item">Dress Shoes</div>
+           </div>
+           <div><h4>Home Decor</h4>
+             <div class="category-item">Wall Art</div>
+             <div class="category-item">Throw Pillows & Blankets</div>
+              <div class="category-item">Candles & Diffusers</div>
+              <div class="category-item">Rugs & Mats</div>
+              <div class="category-item">Tableware & Serveware</div>
+           </div>
+           </div>
+          </div>
+
+          <a href="#" class="dropdown-link"><h6 class="depart1">Shop by Brands &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;<i class="fa-solid fa-caret-right"></i></h6></a>
+          <div class="dropdown-menu">
+          <div class="category-div-dropdown">
+            
+             <div class="brand-item">
+                <h5>Apple</h5>
+                <p>Computers, Laptops, Smartphones & Tablets</p>
+             </div>
+             <div class="brand-item">
+                <h5>Nike</h5>
+                <p>Athletic Shoes, Sneakers, and Sports Apparel</p>
+             </div>
+             <div class="brand-item">
+                <h5>Lululemon</h5>
+                <p>Yoga Pants, Sports Bras, and Workout Clothes</p>
+             </div>
+             <div class="brand-item">
+                <h5>Samsung</h5>
+                <p>TVs, Smartphones, Tablets, and Home Appliances</p>
+             </div>
+          </div>
+          <div class="category-div-dropdown">
+            
+             <div class="brand-item">
+                <h5>Adidas</h5>
+                <p>Sneakers, Sportswear, and Accessories</p>
+             </div>
+             <div class="brand-item">
+                <h5>Calvin Klein</h5>
+                <p>Women's & Men's Clothing, Fragrances, and Accessories</p>
+             </div>
+             <div class="brand-item">
+                <h5>Levi's</h5>
+                <p>Jeans, Jackets, and Shirts for Men and Women</p>
+             </div>
+             <div class="brand-item">
+                <h5>Philips</h5>
+                <p>Home Appliances, Personal Care, and Lighting Solutions</p>
+             </div>
+          </div>
+       </div>
+          <a href="#" class="dropdown-link"><h6 class="depart1">Special Deals&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;<i class="fa-solid fa-caret-right"></i></h6></a>
+          <div class="dropdown-menu">
+          <!-- Add your dropdown menu content here -->
+          <div class="category-div-dropdown">
+          <div><h4>Fashion</h4>
+          <div class="category-item">Women's Clothing</div>
+          <div class="category-item">Men's Clothing</div>
+          <div class="category-item">Kid's Clothing</div>
+          <div class="category-item">Accessories</div>
+          <div class="category-item">Jewelry</div>
+          </div>
+
+          <div><h4>Beauty</h4>
+            <div class="category-item">Makeup</div>
+            <div class="category-item">Skincare</div>
+             <div class="category-item">Haircare</div>
+             <div class="category-item">Fragrance</div>
+             <div class="category-item">Tools & Accessories</div>
+          </div>
+
+          <div><h4>Electronics</h4>
+          <div class="category-item">Computers & Laptops</div>
+          <div class="category-item">Smartphones & Tablets</div>
+           <div class="category-item">Home Entertainment</div>
+           <div class="category-item">Photography</div>
+           <div class="category-item">Gaming </div>
+        </div>
+
+          </div>
+
+
+          <div class="category-div-dropdown">
+          <div><h4>Health</h4>
+            <div class="category-item">Vitamins & Supplements</div>
+            <div class="category-item">Fitness Equipment</div>
+             <div class="category-item">Personal Care</div>
+             <div class="category-item">Medical Supplies & Equipment</div>
+             <div class="category-item">Healthy Snacks & Foods</div>
+          </div>
+          <div><h4>Footwear</h4>
+            <div class="category-item">Sneakers</div>
+            <div class="category-item">Sandals</div>
+             <div class="category-item">Boots</div>
+             <div class="category-item">Athletic Shoes</div>
+             <div class="category-item">Dress Shoes</div>
+          </div>
+          <div><h4>Home Decor</h4>
+            <div class="category-item">Wall Art</div>
+            <div class="category-item">Throw Pillows & Blankets</div>
+             <div class="category-item">Candles & Diffusers</div>
+             <div class="category-item">Rugs & Mats</div>
+             <div class="category-item">Tableware & Serveware</div>
+          </div>
+          </div>
+         </div>
+
+          <a href="#" class="dropdown-link"><h6 class="depart1">Best Sellers&nbsp; &nbsp; &nbsp;<i class="fa-solid fa-caret-right"></i></h6></a>
+          <div class="dropdown-menu">
+          <div class="category-div-dropdown">
+            
+             <div class="brand-item">
+                <h5>Apple</h5>
+                <p>Computers, Laptops, Smartphones & Tablets</p>
+             </div>
+             <div class="brand-item">
+                <h5>Nike</h5>
+                <p>Athletic Shoes, Sneakers, and Sports Apparel</p>
+             </div>
+             <div class="brand-item">
+                <h5>Lululemon</h5>
+                <p>Yoga Pants, Sports Bras, and Workout Clothes</p>
+             </div>
+             <div class="brand-item">
+                <h5>Samsung</h5>
+                <p>TVs, Smartphones, Tablets, and Home Appliances</p>
+             </div>
+          </div>
+          <div class="category-div-dropdown">
+            
+             <div class="brand-item">
+                <h5>Adidas</h5>
+                <p>Sneakers, Sportswear, and Accessories</p>
+             </div>
+             <div class="brand-item">
+                <h5>Calvin Klein</h5>
+                <p>Women's & Men's Clothing, Fragrances, and Accessories</p>
+             </div>
+             <div class="brand-item">
+                <h5>Levi's</h5>
+                <p>Jeans, Jackets, and Shirts for Men and Women</p>
+             </div>
+             <div class="brand-item">
+                <h5>Philips</h5>
+                <p>Home Appliances, Personal Care, and Lighting Solutions</p>
+             </div>
+          </div>
+       </div>
+          <a href="#" class="dropdown-link"><h6 class="depart1">Custom Links&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;<i class="fa-solid fa-caret-right"></i></h6></a>
+          <div class="dropdown-menu">
+          <!-- Add your dropdown menu content here -->
+          <div class="category-div-dropdown">
+          <div><h4>Fashion</h4>
+          <img src="img/fashion/saree.jpeg" height="150px" width="110px">
+          <div class="category-item">Women's Clothing</div>
+         
+          </div>
+
+          <div><h4>Beauty</h4>
+          <img src="img/beauty/nailpolish.jpg" height="150px" width="110px">
+            <div class="category-item">Makeup</div>
+           
+          </div>
+
+          <div><h4>Electronics</h4>
+          <img src="img/electronics/mouse.jpeg" height="150px" width="110px">
+          <div class="category-item">Computers & Laptops</div>
+         
+        </div>
+
+          </div>
+
+
+          <div class="category-div-dropdown">
+          <div><h4>Health</h4>
+          <img src="img/fashion.jpeg" height="150px" width="110px">
+            <div class="category-item">Vitamins & Supplements</div>
+           
+          </div>
+          <div><h4>Footwear</h4>
+          <img src="img/fashion/saree.jpeg" height="150px" width="110px">
+            <div class="category-item">Sneakers</div>
+           
+          </div>
+          <div><h4>Home Decor</h4>
+          <img src="img/electronics/fridge.jpg" height="150px" width="110px">
+            <div class="category-item">Wall Art</div>
+           
+          </div>
+          </div>
+         </div>
+
+          <a href="#" class="dropdown-link"><h6 class="depart1">See All Products&nbsp; &nbsp; &nbsp;&nbsp; <i class="fa-solid fa-caret-right"></i></h6></a>
+        </div>
+      </div>
+      <div>
+        <a>
+          <p>multilevel</p>
+          
+        </a>
+      </div>
+      <div class="mega-menu-container">
+        <a>
+          <p>Mega Menu</p>
+          <div class="new-container">New</div>
+        </a>
+      </div>
+      <div>
+        <a>
+          <p>custom </p>
+        </a>
+      </div>
+    </div>
+    <div class="contact-number-blog-container">
+      <a href="">
+        <div class="contact-number-container">
+          <i class="fa-solid fa-phone-volume mb-3"></i>
+          <p>1.800.555.6789</p>
+        </div>
+      </a>
+      <div class="blog-container">
+        <i class="fa-solid fa-blog"></i>
+        <p>BLOG</p>
+      </div>
+    </div>
   </div>
 </div>
-
-<!-- 2. contact and blog button  -->
-
-<div class="contact-number-blog-container">
-  <a href="">
-    <div class="contact-number-container">
-      <i class="fa-solid fa-phone-volume mb-3" ></i>
-      <p>1.800.555.6789</p>
-    </div></a>
-  <div class="blog-container">
-    <i class="fa-solid fa-blog"></i>
-    <p>BLOG</p>
-  </div>
-</div>
-</div>
-</div>
-
 
 
 </header>
