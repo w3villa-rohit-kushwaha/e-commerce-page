@@ -273,42 +273,6 @@ fetch("productData.json")
   })
   .catch(error => console.error(error));
 
-// let id = parseInt(localStorage.getItem("productId"));
-
-// fetch("productData.json")
-//   .then(response => response.json())
-//   .then(data => {
-//     console.log(data);
-//     const product = data.products.find(product => product.id === id);
-//     if (product) {
-//       // add the product to the most recent products array
-//       let mostRecentProducts = JSON.parse(localStorage.getItem("mostRecentProducts")) || [];
-//       if (mostRecentProducts.length === 5) {
-//         mostRecentProducts.pop();
-//       }
-//       mostRecentProducts.unshift(product.id);
-//       localStorage.setItem("mostRecentProducts", JSON.stringify(mostRecentProducts));
-      
-//       displayProduct(product);
-//     } else {
-//       const matchesString = localStorage.getItem("productId2");
-//       const matches = JSON.parse(matchesString);
-      
-//       // create the recent search products array if it doesn't exist
-//       let recentSearchProducts = JSON.parse(localStorage.getItem("recentSearchProducts")) || [];
-      
-//       // add the matches to the recent search products array
-//       if (recentSearchProducts.length === 5) {
-//         recentSearchProducts.pop();
-//       }
-//       recentSearchProducts.unshift(matches);
-//       localStorage.setItem("recentSearchProducts", JSON.stringify(recentSearchProducts));
-      
-//       displayMatches(matches);
-//     }
-//   })
-//   .catch(error => console.error(error));
-
 
   function displayProduct(product) {
   document.getElementById("searcheditem").innerHTML = ` <a href="details.html?id=${product.id}">  <div class="card m-4" style="width:310px">

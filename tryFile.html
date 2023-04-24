@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+ 
+<title> hii </title>
+</head>
+<body>
+  <div id ="id1" > David</div>
+   <div class ="cls" > David1</div>
+   <div class ="cls" > David2</div>
+   <div class ="cls" > David3</div>
+   <div class ="cls" > David4</div>
+   <div class ="cls" > David5</div>
+   <div class ="cls" > David6</div>
+    
+  <img src=${product.image} class="card-img-top" width="100%" height="300px">
+  <div class="card-body pt-0 px-0">
+    <div class="d-flex flex-row justify-content-between p-3 mid">
+      <a class="d-flex flex-column text-muted mb-1" id ="categogy-div">
+        ${product.category}
+      </a>
+      <p class="d-flex flex-column text-muted mb-2">${product.brand}</p>
+    </div>
+    <div class="left-name">
+      <strong>${product.name}</strong>
+      <p> $ ${product.price}&nbsp; &nbsp;&nbsp;&nbsp;<s>$${product.preprice}</s></p>
+    </div>
+    <div class="add mx-3 mt-3 d-block">
+      <input type="number" class="quantity__input" style ="    padding-bottom: 2px;
+padding-top: 7px;" value="1">
+      <button type="button" onclick="getProductData(event, ${product.id},'cart')" class="btn btn-danger btn-block mb-1">ADD TO CART</button>
+      &nbsp; &nbsp; &nbsp;
+      <i class="fa-regular fa-heart mb-2" onclick="getProductData(event,${product.id},'wishlist')"></i> &nbsp; &nbsp;
+      <i class="fa-solid  fa-arrow-right-arrow-left"></i>
+    </div>
+    <div class="d-flex flex-row justify-content-between p-3 mid">
+      <p class="mb-1">
+        <i class="fa-solid fa-dollar" style="color: lightgreen;"></i> &nbsp;&nbsp;Buy Now
+      </p>
+      <p class="mb-2">
+        <i class="fa-solid fa-question" style="color: red;"></i>&nbsp;&nbsp;Question
+      </p>
+    </div>
+  </div>
+
+
+</body>
+<script>
+  let id = document.getElementById("id1");
+  console.log(id.textContent);
+
+  id.innerHTML = `rohit`;
+
+
+  let cls = document.getElementsByClassName("cls");
+
+  // console.log(cls[1].textContent);
+
+  for(let i=0;i<cls.length;i++)
+  {
+    console.log(cls[i].textContent);
+    cls[i].innerHTML="rohit"
+  }
+let obj = {
+ 
+
+</script>
+</html>

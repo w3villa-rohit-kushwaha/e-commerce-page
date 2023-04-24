@@ -8,7 +8,8 @@ window.addEventListener("load", function() {
   var secondBreadcrumb = breadcrumbContainer.querySelector("li:nth-child(3)");
 
   // Determine which page the user is currently on
-  var currentPageUrl = window.location.href.split("?")[0]; // Remove query parameters from URL
+  var currentPageUrl = window.location.href.split("?")[0]; 
+  // Remove query parameters from URL
   var currentPage = currentPageUrl.substring(currentPageUrl.lastIndexOf('/')+1);
 
   console.log(currentPage);
@@ -27,6 +28,7 @@ window.addEventListener("load", function() {
     case "details.html":
       // Check if the user navigated directly from index.html to second.html
       var referrerPage = document.referrer.split("/").pop();
+      
       if (referrerPage === "index.html") {
         homeBreadcrumb.style.display = "";
         firstBreadcrumb.style.display = "none";

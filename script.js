@@ -1,73 +1,4 @@
 
-// fetch("productData.json")
-//   .then(response => response.json())
-//   .then(data => {
-//     const productList = document.getElementById("product-list");
-//     let trending = `<span class="position-absolute top-10 start-100 translate-middle badge2  badge-info">hot</span>`;
-
-//     for (let i = 0; i < data.products.length; i++) {
-
-//       const product = data.products[i];
-      
-//       // Create a new HTML element for each product and add it to the product list
-
-//       const productElement = document.createElement("div");
-         
-//          productElement.innerHTML = `
-//          <a href="details.html?id=${product.id}">
-         
-//          <div class=" card m-4" style="width:260px">
-//       <div class="badge-overlay">
-//           <span class="top-left badge"> ${product.sale}</span>
-//       </div>
-//       <span
-//           class="position-absolute top-10 start-100 translate-middle badge1  badge-danger">
-//           -${product.tag}%
-//       </span>
- 
-//       ${product.trending ? trending :""}
- 
-//       <img src=${product.image} class="card-img-top" width="100%" height="300px">
-//       <div class="card-body pt-0 px-0">
-//           <div class="d-flex flex-row justify-content-between p-3 mid">
-//               <a class="d-flex flex-column text-muted mb-1">
-//                   ${product.category}
-//               </a>
-//               <p class="d-flex flex-column text-muted mb-2"> ${product.brand}
-//               </p>
-//           </div>
-//           <div class ="left-name">
-//           <strong> ${product.name}</strong>
-//           <p> $${product.price}&nbsp; &nbsp;&nbsp;&nbsp;<s>$${product.preprice}</s></p></div>
-//           <div class=" add mx-3 mt-3 d-block">
-//               <input type="number" class="quantity__input" value="1">
-              
-//               <button type="button" onclick="getProductData(event, ${product.id},'cart')" class="btn btn-danger btn-block mb-1">ADD TO CART</button>
-             
-                      
-//                       &nbsp; &nbsp; &nbsp;
-//               <i class="fa-regular fa-heart mb-2" onclick="getProductData(event,${product.id},'wishlist')"></i> &nbsp; &nbsp;
-//               <i class="fa-solid  fa-arrow-right-arrow-left"></i>
-//               <div id="showcart-${product.id}" style="color:red;display:none">item succesfully added to the cart</div>
-//            </div>
-//             <div class="d-flex flex-row justify-content-between p-3 mid">
-//               <p class="d-flex flex-column mb-1">
-//                   <i class="fa-solid fa-dollar" style="color: lightgreen;"></i>Buy Now
-//               </p>
-//               <p class="d-flex flex-column mb-2"><i class="fa-solid fa-question"
-//                       style="color: red;"></i>Question
-//               </p>
-//           </div>
-//       </div>
-//   </div>
-//   </a>
-//     `;
-//       productList.appendChild(productElement);
-//     }
-    
-//   })
-//   .catch(error => console.error(error));
-
   // fetch JSON data
   let productlist = document.getElementById("product-list-3")
   fetch("data.json")
@@ -79,7 +10,7 @@
          let x =  document.createElement("div")
         x.innerHTML = ` <div class="card m-4" style="width:270px">
         <img src="${product.image_url}" class="card-img-top" width="100%" height="300px">
-        <button type="button" class="btn btn-info btn-block mb-1">${product.category}</button>
+        <button type="button" class="btn btn-info">${product.category}</button>
       </div>
     `;
    productlist.appendChild(x);
@@ -115,6 +46,12 @@
         cartItems.push({ id: productId, quantity: 1, product });
       }
     
+      const alertMsg = document.getElementById("alert-msg");
+      alertMsg.innerHTML = `${product.name} added successfully to the cart`;
+      
+      setTimeout(() => {
+        alertMsg.innerHTML = '';
+      }, 3000);
       
       const productCart = document.getElementById("product-add-to-cart");
   
@@ -155,6 +92,8 @@
       // Add the selected product to the wishlist
        
        wishlist.push(productId);
+       
+       
       let item = document.getElementById("Wishlist-item");
      
       item.innerHTML +=`
@@ -166,72 +105,6 @@
       
     }
   }
-   
-
-
-// fetch("productData.json")
-//   .then(response => response.json())
-//   .then(data => {
-//     const productList = document.getElementById("product-list-2");
-
-//     for (let i = 0; i < data.products.length; i++) {
-
-//       const product = data.products[i];
-      
-//       // Create a new HTML element for each product and add it to the product list
-
-//       const productElement = document.createElement("div");
-         
-//       productElement.innerHTML = `
-//       <a href="details.html?id=${product.id}">
-//            <div class=" card m-4" style="width:260px">
-//         <div class="badge-overlay">
-//             <span class="top-left badge"> ${product.sale}</span>
-//         </div>
-//         <span
-//             class="position-absolute top-10 start-100 translate-middle badge1  badge-danger">
-//             -${product.tag}%
-//         </span>
-
-//         <img src=${product.image} class="card-img-top" width="100%" height="300px">
-//         <div class="card-body pt-0 px-0">
-//             <div class="d-flex flex-row justify-content-between p-3 mid">
-//                 <a class="d-flex flex-column text-muted mb-1">
-//                     ${product.category}
-//                 </a>
-//                 <p class="d-flex flex-column text-muted mb-2"> ${product.brand}
-//                 </p>
-//             </div>
-//             <div class ="left-name">
-//             <strong> ${product.name}</strong>
-//             <p> $${product.price}&nbsp; &nbsp;&nbsp;&nbsp;<s>$${product.preprice}</s></p></div>
-//             <div class=" add mx-3 mt-3 d-block">
-//                 <input type="number" class="quantity__input" value="1">
-                
-//                 <button type="button" onclick="getProductData(event, ${product.id},'cart')" class="btn btn-danger btn-block mb-1">ADD TO CART</button>
-               
-                        
-//                         &nbsp; &nbsp; &nbsp;
-//                 <i class="fa-regular fa-heart mb-2" onclick="getProductData(event,${product.id},'wishlist')"></i> &nbsp; &nbsp;
-//                 <i class="fa-solid  fa-arrow-right-arrow-left"></i>
-//                 <div id="showcart-${product.id}" style="color:red;display:none">item succesfully added to the cart</div>
-//              </div>
-//               <div class="d-flex flex-row justify-content-between p-3 mid">
-//                 <p class="d-flex flex-column mb-1">
-//                     <i class="fa-solid fa-dollar" style="color: lightgreen;"></i>Buy Now
-//                 </p>
-//                 <p class="d-flex flex-column mb-2"><i class="fa-solid fa-question"
-//                         style="color: red;"></i>Question
-//                 </p>
-//             </div>
-//         </div>
-//     </div>
-//     </a>`;
-//       productList.appendChild(productElement);
-//     }
-    
-//   })
-//   .catch(error => console.error(error));
 
 
 fetch("brands.json")
@@ -619,55 +492,47 @@ fetch("productData.json")
 
     const productElement = document.createElement("div");
        
-       productElement.innerHTML = `
-       <a href="details.html?id=${product.id}">
-       
-       <div class=" card m-4" style="width:260px">
-    <div class="badge-overlay">
-        <span class="top-left badge"> ${product.sale}</span>
-    </div>
-    <span
-        class="position-absolute top-10 start-100 translate-middle badge1  badge-danger">
-        -${product.tag}%
-    </span>
+       productElement.innerHTML = ` <a href="details.html?id=${product.id}">  <div class="card m-4" style="width:268px">
+       <div class="badge-overlay">
+       <span class="top-left badge"> ${product.sale}</span>
+   </div>
+   <span
+       class="position-absolute top-10 start-100 translate-middle badge1  badge-danger">
+       -${product.tag}%
+   </span>
 
-    ${product.trending ? trending :""}
-
-    <img src=${product.image} class="card-img-top" width="100%" height="300px">
-    <div class="card-body pt-0 px-0">
-        <div class="d-flex flex-row justify-content-between p-3 mid">
-            <a class="d-flex flex-column text-muted mb-1">
-                ${product.category}
-            </a>
-            <p class="d-flex flex-column text-muted mb-2"> ${product.brand}
-            </p>
-        </div>
-        <div class ="left-name">
-        <strong> ${product.name}</strong>
-        <p> $${product.price}&nbsp; &nbsp;&nbsp;&nbsp;<s>$${product.preprice}</s></p></div>
-        <div class=" add mx-3 mt-3 d-block">
-            <input type="number" class="quantity__input" value="1">
-            
-            <button type="button" onclick="getProductData(event, ${product.id},'cart')" class="btn btn-danger btn-block mb-1">ADD TO CART</button>
-           
-                    
-                    &nbsp; &nbsp; &nbsp;
-            <i class="fa-regular fa-heart mb-2" onclick="getProductData(event,${product.id},'wishlist')"></i> &nbsp; &nbsp;
-            <i class="fa-solid  fa-arrow-right-arrow-left"></i>
-            <div id="showcart-${product.id}" style="color:red;display:none">item succesfully added to the cart</div>
+   ${product.trending ? trending :""}
+       <img src=${product.image} class="card-img-top" width="100%" height="300px"></a>
+       <div class="card-body pt-0 px-0">
+         <div class="d-flex flex-row justify-content-between p-3 mid">
+           <a class="d-flex flex-column text-muted mb-1" id ="categogy-div">
+             ${product.category}
+           </a>
+           <p class="d-flex flex-column text-muted mb-2">${product.brand}</p>
          </div>
-          <div class="d-flex flex-row justify-content-between p-3 mid">
-            <p class="d-flex flex-column mb-1">
-                <i class="fa-solid fa-dollar" style="color: lightgreen;"></i>Buy Now
-            </p>
-            <p class="d-flex flex-column mb-2"><i class="fa-solid fa-question"
-                    style="color: red;"></i>Question
-            </p>
-        </div>
-    </div>
-</div>
-</a>
-  `;
+         </div>
+         <div class="left-name">
+           <h5>${product.name}</h5>
+           <p> $${product.price}&nbsp; &nbsp;&nbsp;&nbsp;<s>$${product.preprice}</s></p>
+         </div>
+         <div class="add mx-3 mt-3 d-block">
+           <input type="number" class="quantity__input" style ="    padding-bottom: 2px;
+     padding-top: 7px;" value="1">
+           <button type="button" onclick="getProductData(event, ${product.id},'cart')" class="btn btn-danger btn-block mb-1">ADD TO CART</button>
+           &nbsp;
+           <i class="fa-regular fa-heart mb-2" onclick="getProductData(event,${product.id},'wishlist')"></i> &nbsp; &nbsp;
+           <i class="fa-solid  fa-arrow-right-arrow-left"></i>
+         </div>
+         <div class="d-flex flex-row justify-content-between p-3 mid">
+           <p class="mb-1">
+             <i class="fa-solid fa-dollar" style="color: lightgreen;"></i> &nbsp;&nbsp;Buy Now
+           </p>
+           <p class="mb-2">
+             <i class="fa-solid fa-question" style="color: blue;"></i>&nbsp;&nbsp;Question
+           </p>
+         </div>
+       </div>
+     </div>`;
     productList.appendChild(productElement);
   }
   
@@ -691,55 +556,47 @@ fetch("productData.json")
     
     const productElement = document.createElement("div");
        
-       productElement.innerHTML = `
-       <a href="details.html?id=${product.id}">
-       
-       <div class=" card m-4" style="width:260px">
-    <div class="badge-overlay">
-        <span class="top-left badge"> ${product.sale}</span>
-    </div>
-    <span
-        class="position-absolute top-10 start-100 translate-middle badge1  badge-danger">
-        -${product.tag}%
-    </span>
+       productElement.innerHTML =` <a href="details.html?id=${product.id}">  <div class="card m-4" style="width:268px">
+       <div class="badge-overlay">
+       <span class="top-left badge"> ${product.sale}</span>
+   </div>
+   <span
+       class="position-absolute top-10 start-100 translate-middle badge1  badge-danger">
+       -${product.tag}%
+   </span>
 
-    ${product.trending ? trending :""}
-
-    <img src=${product.image} class="card-img-top" width="100%" height="300px">
-    <div class="card-body pt-0 px-0">
-        <div class="d-flex flex-row justify-content-between p-3 mid">
-            <a class="d-flex flex-column text-muted mb-1">
-                ${product.category}
-            </a>
-            <p class="d-flex flex-column text-muted mb-2"> ${product.brand}
-            </p>
-        </div>
-        <div class ="left-name">
-        <strong> ${product.name}</strong>
-        <p> $${product.price}&nbsp; &nbsp;&nbsp;&nbsp;<s>$${product.preprice}</s></p></div>
-        <div class=" add mx-3 mt-3 d-block">
-            <input type="number" class="quantity__input" value="1">
-            
-            <button type="button" onclick="getProductData(event, ${product.id},'cart')" class="btn btn-danger btn-block mb-1">ADD TO CART</button>
-           
-                    
-                    &nbsp; &nbsp; &nbsp;
-            <i class="fa-regular fa-heart mb-2" onclick="getProductData(event,${product.id},'wishlist')"></i> &nbsp; &nbsp;
-            <i class="fa-solid  fa-arrow-right-arrow-left"></i>
-            <div id="showcart-${product.id}" style="color:red;display:none">item succesfully added to the cart</div>
+   ${product.trending ? trending :""}
+       <img src=${product.image} class="card-img-top" width="100%" height="300px"></a>
+       <div class="card-body pt-0 px-0">
+         <div class="d-flex flex-row justify-content-between p-3 mid">
+           <a class="d-flex flex-column text-muted mb-1" id ="categogy-div">
+             ${product.category}
+           </a>
+           <p class="d-flex flex-column text-muted mb-2">${product.brand}</p>
          </div>
-          <div class="d-flex flex-row justify-content-between p-3 mid">
-            <p class="d-flex flex-column mb-1">
-                <i class="fa-solid fa-dollar" style="color: lightgreen;"></i>Buy Now
-            </p>
-            <p class="d-flex flex-column mb-2"><i class="fa-solid fa-question"
-                    style="color: red;"></i>Question
-            </p>
-        </div>
-    </div>
-</div>
-</a>
-  `;
+         </div>
+         <div class="left-name">
+           <h5>${product.name}</h5>
+           <p> $${product.price}&nbsp; &nbsp;&nbsp;&nbsp;<s>$${product.preprice}</s></p>
+         </div>
+         <div class="add mx-3 mt-3 d-block">
+           <input type="number" class="quantity__input" style ="    padding-bottom: 2px;
+     padding-top: 7px;" value="1">
+           <button type="button" onclick="getProductData(event, ${product.id},'cart')" class="btn btn-danger btn-block mb-1">ADD TO CART</button>
+           &nbsp;
+           <i class="fa-regular fa-heart mb-2" onclick="getProductData(event,${product.id},'wishlist')"></i> &nbsp; &nbsp;
+           <i class="fa-solid  fa-arrow-right-arrow-left"></i>
+         </div>
+         <div class="d-flex flex-row justify-content-between p-3 mid">
+           <p class="mb-1">
+             <i class="fa-solid fa-dollar" style="color: lightgreen;"></i> &nbsp;&nbsp;Buy Now
+           </p>
+           <p class="mb-2">
+             <i class="fa-solid fa-question" style="color: blue;"></i>&nbsp;&nbsp;Question
+           </p>
+         </div>
+       </div>
+     </div>`;
     productList.appendChild(productElement);
   }
   
@@ -763,55 +620,47 @@ fetch("productData.json")
 
     const productElement = document.createElement("div");
        
-       productElement.innerHTML = `
-       <a href="details.html?id=${product.id}">
-       
-       <div class=" card m-4" style="width:260px">
-    <div class="badge-overlay">
-        <span class="top-left badge"> ${product.sale}</span>
-    </div>
-    <span
-        class="position-absolute top-10 start-100 translate-middle badge1  badge-danger">
-        -${product.tag}%
-    </span>
+       productElement.innerHTML = ` <a href="details.html?id=${product.id}">  <div class="card m-4" style="width:268px">
+       <div class="badge-overlay">
+       <span class="top-left badge"> ${product.sale}</span>
+   </div>
+   <span
+       class="position-absolute top-10 start-100 translate-middle badge1  badge-danger">
+       -${product.tag}%
+   </span>
 
-    ${product.trending ? trending :""}
-
-    <img src=${product.image} class="card-img-top" width="100%" height="300px">
-    <div class="card-body pt-0 px-0">
-        <div class="d-flex flex-row justify-content-between p-3 mid">
-            <a class="d-flex flex-column text-muted mb-1">
-                ${product.category}
-            </a>
-            <p class="d-flex flex-column text-muted mb-2"> ${product.brand}
-            </p>
-        </div>
-        <div class ="left-name">
-        <strong> ${product.name}</strong>
-        <p> $${product.price}&nbsp; &nbsp;&nbsp;&nbsp;<s>$${product.preprice}</s></p></div>
-        <div class=" add mx-3 mt-3 d-block">
-            <input type="number" class="quantity__input" value="1">
-            
-            <button type="button" onclick="getProductData(event, ${product.id},'cart')" class="btn btn-danger btn-block mb-1">ADD TO CART</button>
-           
-                    
-                    &nbsp; &nbsp; &nbsp;
-            <i class="fa-regular fa-heart mb-2" onclick="getProductData(event,${product.id},'wishlist')"></i> &nbsp; &nbsp;
-            <i class="fa-solid  fa-arrow-right-arrow-left"></i>
-            <div id="showcart-${product.id}" style="color:red;display:none">item succesfully added to the cart</div>
+   ${product.trending ? trending :""}
+       <img src=${product.image} class="card-img-top" width="100%" height="300px"></a>
+       <div class="card-body pt-0 px-0">
+         <div class="d-flex flex-row justify-content-between p-3 mid">
+           <a class="d-flex flex-column text-muted mb-1" id ="categogy-div">
+             ${product.category}
+           </a>
+           <p class="d-flex flex-column text-muted mb-2">${product.brand}</p>
          </div>
-          <div class="d-flex flex-row justify-content-between p-3 mid">
-            <p class="d-flex flex-column mb-1">
-                <i class="fa-solid fa-dollar" style="color: lightgreen;"></i>Buy Now
-            </p>
-            <p class="d-flex flex-column mb-2"><i class="fa-solid fa-question"
-                    style="color: red;"></i>Question
-            </p>
-        </div>
-    </div>
-</div>
-</a>
-  `;
+         </div>
+         <div class="left-name">
+           <h5>${product.name}</h5>
+           <p> $${product.price}&nbsp; &nbsp;&nbsp;&nbsp;<s>$${product.preprice}</s></p>
+         </div>
+         <div class="add mx-3 mt-3 d-block">
+           <input type="number" class="quantity__input" style ="    padding-bottom: 2px;
+     padding-top: 7px;" value="1">
+           <button type="button" onclick="getProductData(event, ${product.id},'cart')" class="btn btn-danger btn-block mb-1">ADD TO CART</button>
+           &nbsp;
+           <i class="fa-regular fa-heart mb-2" onclick="getProductData(event,${product.id},'wishlist')"></i> &nbsp; &nbsp;
+           <i class="fa-solid  fa-arrow-right-arrow-left"></i>
+         </div>
+         <div class="d-flex flex-row justify-content-between p-3 mid">
+           <p class="mb-1">
+             <i class="fa-solid fa-dollar" style="color: lightgreen;"></i> &nbsp;&nbsp;Buy Now
+           </p>
+           <p class="mb-2">
+             <i class="fa-solid fa-question" style="color: blue;"></i>&nbsp;&nbsp;Question
+           </p>
+         </div>
+       </div>
+     </div>`;
     productList.appendChild(productElement);
   }
   
@@ -835,55 +684,47 @@ fetch("productData.json")
 
     const productElement = document.createElement("div");
        
-       productElement.innerHTML = `
-       <a href="details.html?id=${product.id}">
-       
-       <div class=" card m-4" style="width:260px">
-    <div class="badge-overlay">
-        <span class="top-left badge"> ${product.sale}</span>
-    </div>
-    <span
-        class="position-absolute top-10 start-100 translate-middle badge1  badge-danger">
-        -${product.tag}%
-    </span>
+       productElement.innerHTML = ` <a href="details.html?id=${product.id}">  <div class="card m-4" style="width:268px">
+       <div class="badge-overlay">
+       <span class="top-left badge"> ${product.sale}</span>
+   </div>
+   <span
+       class="position-absolute top-10 start-100 translate-middle badge1  badge-danger">
+       -${product.tag}%
+   </span>
 
-    ${product.trending ? trending :""}
-
-    <img src=${product.image} class="card-img-top" width="100%" height="300px">
-    <div class="card-body pt-0 px-0">
-        <div class="d-flex flex-row justify-content-between p-3 mid">
-            <a class="d-flex flex-column text-muted mb-1">
-                ${product.category}
-            </a>
-            <p class="d-flex flex-column text-muted mb-2"> ${product.brand}
-            </p>
-        </div>
-        <div class ="left-name">
-        <strong> ${product.name}</strong>
-        <p> $${product.price}&nbsp; &nbsp;&nbsp;&nbsp;<s>$${product.preprice}</s></p></div>
-        <div class=" add mx-3 mt-3 d-block">
-            <input type="number" class="quantity__input" value="1">
-            
-            <button type="button" onclick="getProductData(event, ${product.id},'cart')" class="btn btn-danger btn-block mb-1">ADD TO CART</button>
-           
-                    
-                    &nbsp; &nbsp; &nbsp;
-            <i class="fa-regular fa-heart mb-2" onclick="getProductData(event,${product.id},'wishlist')"></i> &nbsp; &nbsp;
-            <i class="fa-solid  fa-arrow-right-arrow-left"></i>
-            <div id="showcart-${product.id}" style="color:red;display:none">item succesfully added to the cart</div>
+   ${product.trending ? trending :""}
+       <img src=${product.image} class="card-img-top" width="100%" height="300px"></a>
+       <div class="card-body pt-0 px-0">
+         <div class="d-flex flex-row justify-content-between p-3 mid">
+           <a class="d-flex flex-column text-muted mb-1" id ="categogy-div">
+             ${product.category}
+           </a>
+           <p class="d-flex flex-column text-muted mb-2">${product.brand}</p>
          </div>
-          <div class="d-flex flex-row justify-content-between p-3 mid">
-            <p class="d-flex flex-column mb-1">
-                <i class="fa-solid fa-dollar" style="color: lightgreen;"></i>Buy Now
-            </p>
-            <p class="d-flex flex-column mb-2"><i class="fa-solid fa-question"
-                    style="color: red;"></i>Question
-            </p>
-        </div>
-    </div>
-</div>
-</a>
-  `;
+         </div>
+         <div class="left-name">
+           <h5>${product.name}</h5>
+           <p> $${product.price}&nbsp; &nbsp;&nbsp;&nbsp;<s>$${product.preprice}</s></p>
+         </div>
+         <div class="add mx-3 mt-3 d-block">
+           <input type="number" class="quantity__input" style ="    padding-bottom: 2px;
+     padding-top: 7px;" value="1">
+           <button type="button" onclick="getProductData(event, ${product.id},'cart')" class="btn btn-danger btn-block mb-1">ADD TO CART</button>
+           &nbsp;
+           <i class="fa-regular fa-heart mb-2" onclick="getProductData(event,${product.id},'wishlist')"></i> &nbsp; &nbsp;
+           <i class="fa-solid  fa-arrow-right-arrow-left"></i>
+         </div>
+         <div class="d-flex flex-row justify-content-between p-3 mid">
+           <p class="mb-1">
+             <i class="fa-solid fa-dollar" style="color: lightgreen;"></i> &nbsp;&nbsp;Buy Now
+           </p>
+           <p class="mb-2">
+             <i class="fa-solid fa-question" style="color: blue;"></i>&nbsp;&nbsp;Question
+           </p>
+         </div>
+       </div>
+     </div>`;
     productList.appendChild(productElement);
   }
   
@@ -953,7 +794,7 @@ function loadContent(category) {
             -${product.tag}%
         </span>
 
-        <img src=${product.image} class="card-img-top" width="100%" height="300px">
+        <img src=${product.image} class="card-img-top" width="100%" height="300px"></a>
         <div class="card-body pt-0 px-0">
             <div class="d-flex flex-row justify-content-between p-3 mid">
                 <a class="d-flex flex-column text-muted mb-1">
@@ -965,28 +806,25 @@ function loadContent(category) {
             <div class ="left-name">
             <strong> ${product.name}</strong>
             <p> $${product.price}&nbsp; &nbsp;&nbsp;&nbsp;<s>$${product.preprice}</s></p></div>
-            <div class=" add mx-3 mt-3 d-block">
+            <div class=" add mt-3 d-block">
                 <input type="number" class="quantity__input" value="1">
-                
-                <button type="button" onclick="getProductData(event, ${product.id},'cart')" class="btn btn-danger btn-block mb-1">ADD TO CART</button>
-               
-                        
-                        &nbsp; &nbsp; &nbsp;
+                <button type="button" onclick="getProductData(event, ${product.id},'cart')" class="btn btn-danger btn-block mb-1">ADD TO CART</button>   
+                        &nbsp; &nbsp;
                 <i class="fa-regular fa-heart mb-2" onclick="getProductData(event,${product.id},'wishlist')"></i> &nbsp; &nbsp;
                 <i class="fa-solid  fa-arrow-right-arrow-left"></i>
                 <div id="showcart-${product.id}" style="color:red;display:none">item succesfully added to the cart</div>
              </div>
-              <div class="d-flex flex-row justify-content-between p-3 mid">
-                <p class="d-flex flex-column mb-1">
-                    <i class="fa-solid fa-dollar" style="color: lightgreen;"></i>Buy Now
-                </p>
-                <p class="d-flex flex-column mb-2"><i class="fa-solid fa-question"
-                        style="color: red;"></i>Question
-                </p>
-            </div>
+             <div class="d-flex flex-row justify-content-between p-3 mid">
+             <p class="mb-1">
+               <i class="fa-solid fa-dollar" style="color: lightgreen;"></i> &nbsp;&nbsp;Buy Now
+             </p>
+             <p class="mb-2">
+               <i class="fa-solid fa-question" style="color: blue;"></i>&nbsp;&nbsp;Question
+             </p>
+           </div>
         </div>
     </div>
-    </a>`;
+    `;
       productList.appendChild(productElement);
     }
     
@@ -1019,7 +857,7 @@ function loadContent(category) {
                 -${product.tag}%
             </span>
     
-            <img src=${product.image} class="card-img-top" width="100%" height="300px">
+            <img src=${product.image} class="card-img-top" width="100%" height="300px"></a>
             <div class="card-body pt-0 px-0">
                 <div class="d-flex flex-row justify-content-between p-3 mid">
                     <a class="d-flex flex-column text-muted mb-1">
@@ -1031,28 +869,25 @@ function loadContent(category) {
                 <div class ="left-name">
                 <strong> ${product.name}</strong>
                 <p> $${product.price}&nbsp; &nbsp;&nbsp;&nbsp;<s>$${product.preprice}</s></p></div>
-                <div class=" add mx-3 mt-3 d-block">
+                <div class=" add mt-3 d-block">
                     <input type="number" class="quantity__input" value="1">
-                    
-                    <button type="button" onclick="getProductData(event, ${product.id},'cart')" class="btn btn-danger btn-block mb-1">ADD TO CART</button>
-                   
-                            
-                            &nbsp; &nbsp; &nbsp;
+                    <button type="button" onclick="getProductData(event, ${product.id},'cart')" class="btn btn-danger btn-block mb-1">ADD TO CART</button>   
+                            &nbsp; &nbsp;
                     <i class="fa-regular fa-heart mb-2" onclick="getProductData(event,${product.id},'wishlist')"></i> &nbsp; &nbsp;
                     <i class="fa-solid  fa-arrow-right-arrow-left"></i>
                     <div id="showcart-${product.id}" style="color:red;display:none">item succesfully added to the cart</div>
                  </div>
-                  <div class="d-flex flex-row justify-content-between p-3 mid">
-                    <p class="d-flex flex-column mb-1">
-                        <i class="fa-solid fa-dollar" style="color: lightgreen;"></i>Buy Now
-                    </p>
-                    <p class="d-flex flex-column mb-2"><i class="fa-solid fa-question"
-                            style="color: red;"></i>Question
-                    </p>
-                </div>
+                 <div class="d-flex flex-row justify-content-between p-3 mid">
+                 <p class="mb-1">
+                   <i class="fa-solid fa-dollar" style="color: lightgreen;"></i> &nbsp;&nbsp;Buy Now
+                 </p>
+                 <p class="mb-2">
+                   <i class="fa-solid fa-question" style="color: blue;"></i>&nbsp;&nbsp;Question
+                 </p>
+               </div>
             </div>
         </div>
-        </a>`;
+        `;
           productList.appendChild(productElement);
         }
         
@@ -1085,7 +920,7 @@ function loadContent(category) {
                 -${product.tag}%
             </span>
     
-            <img src=${product.image} class="card-img-top" width="100%" height="300px">
+            <img src=${product.image} class="card-img-top" width="100%" height="300px"></a>
             <div class="card-body pt-0 px-0">
                 <div class="d-flex flex-row justify-content-between p-3 mid">
                     <a class="d-flex flex-column text-muted mb-1">
@@ -1097,28 +932,25 @@ function loadContent(category) {
                 <div class ="left-name">
                 <strong> ${product.name}</strong>
                 <p> $${product.price}&nbsp; &nbsp;&nbsp;&nbsp;<s>$${product.preprice}</s></p></div>
-                <div class=" add mx-3 mt-3 d-block">
+                <div class=" add mt-3 d-block">
                     <input type="number" class="quantity__input" value="1">
-                    
-                    <button type="button" onclick="getProductData(event, ${product.id},'cart')" class="btn btn-danger btn-block mb-1">ADD TO CART</button>
-                   
-                            
-                            &nbsp; &nbsp; &nbsp;
+                    <button type="button" onclick="getProductData(event, ${product.id},'cart')" class="btn btn-danger btn-block mb-1">ADD TO CART</button>   
+                            &nbsp; &nbsp;
                     <i class="fa-regular fa-heart mb-2" onclick="getProductData(event,${product.id},'wishlist')"></i> &nbsp; &nbsp;
                     <i class="fa-solid  fa-arrow-right-arrow-left"></i>
                     <div id="showcart-${product.id}" style="color:red;display:none">item succesfully added to the cart</div>
                  </div>
-                  <div class="d-flex flex-row justify-content-between p-3 mid">
-                    <p class="d-flex flex-column mb-1">
-                        <i class="fa-solid fa-dollar" style="color: lightgreen;"></i>Buy Now
-                    </p>
-                    <p class="d-flex flex-column mb-2"><i class="fa-solid fa-question"
-                            style="color: red;"></i>Question
-                    </p>
-                </div>
+                 <div class="d-flex flex-row justify-content-between p-3 mid">
+                 <p class="mb-1">
+                   <i class="fa-solid fa-dollar" style="color: lightgreen;"></i> &nbsp;&nbsp;Buy Now
+                 </p>
+                 <p class="mb-2">
+                   <i class="fa-solid fa-question" style="color: blue;"></i>&nbsp;&nbsp;Question
+                 </p>
+               </div>
             </div>
         </div>
-        </a>`;
+        `;
           productList.appendChild(productElement);
         }
         
@@ -1151,7 +983,7 @@ function loadContent(category) {
             -${product.tag}%
         </span>
 
-        <img src=${product.image} class="card-img-top" width="100%" height="300px">
+        <img src=${product.image} class="card-img-top" width="100%" height="300px"></a>
         <div class="card-body pt-0 px-0">
             <div class="d-flex flex-row justify-content-between p-3 mid">
                 <a class="d-flex flex-column text-muted mb-1">
@@ -1163,28 +995,25 @@ function loadContent(category) {
             <div class ="left-name">
             <strong> ${product.name}</strong>
             <p> $${product.price}&nbsp; &nbsp;&nbsp;&nbsp;<s>$${product.preprice}</s></p></div>
-            <div class=" add mx-3 mt-3 d-block">
+            <div class=" add mt-3 d-block">
                 <input type="number" class="quantity__input" value="1">
-                
-                <button type="button" onclick="getProductData(event, ${product.id},'cart')" class="btn btn-danger btn-block mb-1">ADD TO CART</button>
-               
-                        
-                        &nbsp; &nbsp; &nbsp;
+                <button type="button" onclick="getProductData(event, ${product.id},'cart')" class="btn btn-danger btn-block mb-1">ADD TO CART</button>   
+                        &nbsp; &nbsp;
                 <i class="fa-regular fa-heart mb-2" onclick="getProductData(event,${product.id},'wishlist')"></i> &nbsp; &nbsp;
                 <i class="fa-solid  fa-arrow-right-arrow-left"></i>
                 <div id="showcart-${product.id}" style="color:red;display:none">item succesfully added to the cart</div>
              </div>
-              <div class="d-flex flex-row justify-content-between p-3 mid">
-                <p class="d-flex flex-column mb-1">
-                    <i class="fa-solid fa-dollar" style="color: lightgreen;"></i>Buy Now
-                </p>
-                <p class="d-flex flex-column mb-2"><i class="fa-solid fa-question"
-                        style="color: red;"></i>Question
-                </p>
-            </div>
+             <div class="d-flex flex-row justify-content-between p-3 mid">
+             <p class="mb-1">
+               <i class="fa-solid fa-dollar" style="color: lightgreen;"></i> &nbsp;&nbsp;Buy Now
+             </p>
+             <p class="mb-2">
+               <i class="fa-solid fa-question" style="color: blue;"></i>&nbsp;&nbsp;Question
+             </p>
+           </div>
         </div>
     </div>
-    </a>`;
+    `;
       productList.appendChild(productElement);
     }
     
@@ -1274,3 +1103,4 @@ for (let i = 0; i < dropdownLinks.length; i++) {
     }, 500);
   });
 }
+

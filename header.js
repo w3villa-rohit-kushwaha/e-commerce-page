@@ -64,7 +64,7 @@
   </ul>
   <ul class="navbar-nav ml-auto">
     <li class="nav-item">
-      <a class="nav-link" href="#"><i class="fa-regular fa-user"></i>Main Menu</a>
+      <a class="nav-link" href="#"><i class="fa-regular fa-user"></i>&nbsp;&nbsp;Main Menu</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="#"><i class="fa-solid fa-truck"></i>&nbsp;&nbsp;Delivery</a>
@@ -455,7 +455,7 @@
           <a href="#" class="dropdown-link"><h6 class="depart1">See All Products&nbsp; &nbsp; &nbsp;&nbsp; <i class="fa-solid fa-caret-right"></i></h6></a>
         </div>
       </div>
-      <div>
+      <div class= "mega-menu-container">
         <a>
           <p>multilevel</p>
           
@@ -467,7 +467,7 @@
           <div class="new-container">New</div>
         </a>
       </div>
-      <div>
+      <div class= "mega-menu-container">
         <a>
           <p>custom </p>
         </a>
@@ -475,14 +475,14 @@
     </div>
     <div class="contact-number-blog-container">
       <a href="">
-        <div class="contact-number-container">
+        <div class="contact-number-container mt-3">
           <i class="fa-solid fa-phone-volume mb-3"></i>
           <p>1.800.555.6789</p>
         </div>
       </a>
       <div class="blog-container">
         <i class="fa-solid fa-blog"></i>
-        <p>BLOG</p>
+        <p class="mt-3" >BLOG</p>
       </div>
     </div>
   </div>
