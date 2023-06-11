@@ -17,7 +17,7 @@
       }
     })
 
-  let cartItems = []; 
+  let cartItems = [];
   let wishlist = []; // Array to store products in the wishlist
 
   async function getProductData(event, productId, action) {
@@ -31,30 +31,30 @@
             alert('This product is already in your wishlist!');
             return;
         }
-  
-  
+
+
     // Perform the specified action (add to cart or add to wishlist)
     if (action === 'cart') {
-    
+
       // Add the selected product to the cart
       const existingItem = cartItems.find(item => item.id === productId);
       if (existingItem) {
         existingItem.quantity++;
-  
+
       }
       else {
         cartItems.push({ id: productId, quantity: 1, product });
       }
-    
-      const alertMsg = document.getElementById("alert-msg");
-      alertMsg.innerHTML = `${product.name} added successfully to the cart`;
-      
-      setTimeout(() => {
-        alertMsg.innerHTML = '';
-      }, 3000);
-      
+
+      // const alertMsg = document.getElementById("alert-msg");
+      // alertMsg.innerHTML = `${product.name} added successfully to the cart`;
+
+      // setTimeout(() => {
+      //   alertMsg.innerHTML = '';
+      // }, 3000);
+
       const productCart = document.getElementById("product-add-to-cart");
-  
+
       productCart.innerHTML = cartItems.map(item => `
         <div class="container">
           <div class="row">
@@ -69,40 +69,40 @@
               <i class="fa-reguler fa-circle-xmark fa-2x">hii</i>
             </div>
           </div>
-      
+
       `);
-      
+
       // total number of items
-  
+
       let totalItems = 0;
-  
+
       for (let i = 0; i < cartItems.length; i++) {
         totalItems += cartItems[i].quantity;
       }
        let totalitems = document.getElementById("additems");
-           
+
         totalitems.innerHTML = `
         <div  style="font-size:25px;background-color:blue; color:white; border-radius: 50%; height: 35px;width: 35px">
         ${totalItems}
         </div>
         `
-        
+
     } else if (action === 'wishlist') {
 
       // Add the selected product to the wishlist
-       
+
        wishlist.push(productId);
-       
-       
+
+
       let item = document.getElementById("Wishlist-item");
-     
+
       item.innerHTML +=`
         <h3>${product.name}</h3>
         <p>${product.price}</p>
         <img src="${product.img}" alt="" height="100px" width="100px">
          <button>Add to cart</button>
       `;
-      
+
     }
   }
 
@@ -119,11 +119,11 @@ fetch("brands.json")
     // Create a new HTML element for each product and add it to the product list
 
     const productElement = document.createElement("div");
-    
+
     productElement.innerHTML = `
     <div class="card  styleimger cus-card">
     <img src="${product.image}" alt="...">
-</div>           
+</div>
   </div>
     `;
     productList.appendChild(productElement);
@@ -208,7 +208,7 @@ window.addEventListener("click", (event) => {
     }
 });
 
-// register 
+// register
 const registerForm = document.getElementById('register-form');
 const loginForm = document.getElementById('login-form');
 let users = []
@@ -218,15 +218,15 @@ registerForm.addEventListener('submit', (event) => {
 
   const username = document.getElementById('username-reg').value;
   const password = document.getElementById('password-reg').value;
-  
-  
+
+
   let user_obj = {
      username: username,
      pwd: password
   }
 
   let storedUsers = JSON.parse(localStorage.getItem("users"));
-  if (storedUsers) { 
+  if (storedUsers) {
     for (let i = 0; i < storedUsers.length; i++) {
       if (storedUsers[i].username === username) {
         alert('Username already exists!');
@@ -235,13 +235,13 @@ registerForm.addEventListener('submit', (event) => {
     }
   }
 
-  
+
   users.push(user_obj);
-  
+
   localStorage.setItem("users", JSON.stringify(users));
 
 
- 
+
   alert('Registration successful!');
   registerModal.style.display = "none";
   registerForm.reset();
@@ -254,9 +254,9 @@ function auth() {
    let isLoggedIn = false;
    let username = "";
 
-  if (storedUsers) { 
+  if (storedUsers) {
     for(let i = 0; i < storedUsers.length; i++) {
-      if(storedUsers[i].loggedIn) 
+      if(storedUsers[i].loggedIn)
       {
         isLoggedIn = true;
         username = storedUsers[i].username;
@@ -301,13 +301,13 @@ loginForm.addEventListener('submit', (event) => {
   let storedUsers = JSON.parse(localStorage.getItem("users"));
   let isLoginSuccessful = false; // flag variable
 
-  if (storedUsers) { 
+  if (storedUsers) {
     for(let i = 0; i < storedUsers.length; i++) {
       if(username === storedUsers[i].username && password === storedUsers[i].pwd) {
         isLoginSuccessful = true;
         storedUsers[i].loggedIn = true; // Set the loggedIn property for the user
         localStorage.setItem("users", JSON.stringify(storedUsers)); // Update the stored users in local storage
-        break; 
+        break;
       }
     }
   }
@@ -326,7 +326,7 @@ document.getElementById("logout-button").addEventListener("click",(e)=> {
   e.preventDefault();
   let storedUsers = JSON.parse(localStorage.getItem("users"));
 
-  if (storedUsers) { 
+  if (storedUsers) {
     for(let i = 0; i < storedUsers.length; i++) {
       if(storedUsers[i].loggedIn) {
         storedUsers[i].loggedIn = false; // Set the loggedIn property for the user to false
@@ -339,7 +339,7 @@ document.getElementById("logout-button").addEventListener("click",(e)=> {
 });
 
 
-//chatbot 
+//chatbot
 const chatbotContainer = document.querySelector('.chatbot-container');
 const chatHeader = chatbotContainer.querySelector('.chat-header');
 const chatBody = chatbotContainer.querySelector('.chat-body');
@@ -358,7 +358,7 @@ const responses = {
     "What is your warranty policy?": "Our products come with a one-year warranty.",
     "Do you offer discounts or promotions?": "Yes, we occasionally offer discounts and promotions. Please check our website or subscribe to our newsletter to stay updated.",
     "What is your customer service phone number?": "Our customer service phone number is 1-800-123-4567."
-  
+
 };
 
 questionButtons.forEach(button => {
@@ -370,7 +370,7 @@ questionButtons.forEach(button => {
     chatMessages.appendChild(message);
   });
 });
- 
+
 function myFunction1() {
   var x = document.getElementById("price-div");
   document.getElementById("minus").innerHTML=`<h3>+</h3>`;
@@ -462,7 +462,7 @@ categories.forEach(function(category) {
 
       // load content based on the selected category
       const selectedCategory = this.getAttribute("data-category");
-      loadContent1(selectedCategory); 
+      loadContent1(selectedCategory);
 
   });
 });
@@ -487,11 +487,11 @@ fetch("productData.json")
   for (let i = 0; i < data.products.length-15; i++) {
 
     const product = data.products[i];
-    
+
     // Create a new HTML element for each product and add it to the product list
 
     const productElement = document.createElement("div");
-       
+
        productElement.innerHTML = ` <a href="details.html?id=${product.id}">  <div class="card m-4" style="width:268px">
        <div class="badge-overlay">
        <span class="top-left badge"> ${product.sale}</span>
@@ -535,7 +535,7 @@ fetch("productData.json")
      </div>`;
     productList.appendChild(productElement);
   }
-  
+
 })
 .catch(error => console.error(error));
       break;
@@ -551,11 +551,11 @@ fetch("productData.json")
   for (let i = 9; i < data.products.length-6; i++) {
 
     const product = data.products[i];
-    
+
     // Create a new HTML element for each product and add it to the product list
-    
+
     const productElement = document.createElement("div");
-       
+
        productElement.innerHTML =` <a href="details.html?id=${product.id}">  <div class="card m-4" style="width:268px">
        <div class="badge-overlay">
        <span class="top-left badge"> ${product.sale}</span>
@@ -599,7 +599,7 @@ fetch("productData.json")
      </div>`;
     productList.appendChild(productElement);
   }
-  
+
 })
 .catch(error => console.error(error));
       break;
@@ -615,11 +615,11 @@ fetch("productData.json")
   for (let i = 15; i < data.products.length; i++) {
 
     const product = data.products[i];
-    
+
     // Create a new HTML element for each product and add it to the product list
 
     const productElement = document.createElement("div");
-       
+
        productElement.innerHTML = ` <a href="details.html?id=${product.id}">  <div class="card m-4" style="width:268px">
        <div class="badge-overlay">
        <span class="top-left badge"> ${product.sale}</span>
@@ -663,7 +663,7 @@ fetch("productData.json")
      </div>`;
     productList.appendChild(productElement);
   }
-  
+
 })
 .catch(error => console.error(error));
       break;
@@ -679,11 +679,11 @@ fetch("productData.json")
   for (let i = 6; i < data.products.length-9; i++) {
 
     const product = data.products[i];
-    
+
     // Create a new HTML element for each product and add it to the product list
 
     const productElement = document.createElement("div");
-       
+
        productElement.innerHTML = ` <a href="details.html?id=${product.id}">  <div class="card m-4" style="width:268px">
        <div class="badge-overlay">
        <span class="top-left badge"> ${product.sale}</span>
@@ -727,7 +727,7 @@ fetch("productData.json")
      </div>`;
     productList.appendChild(productElement);
   }
-  
+
 })
 .catch(error => console.error(error));
       break;
@@ -778,11 +778,11 @@ function loadContent(category) {
     for (let i = 0; i < data.products.length-15; i++) {
 
       const product = data.products[i];
-      
+
       // Create a new HTML element for each product and add it to the product list
 
       const productElement = document.createElement("div");
-         
+
       productElement.innerHTML = `
       <a href="details.html?id=${product.id}">
            <div class=" card m-4" style="width:260px">
@@ -808,7 +808,7 @@ function loadContent(category) {
             <p> $${product.price}&nbsp; &nbsp;&nbsp;&nbsp;<s>$${product.preprice}</s></p></div>
             <div class=" add mt-3 d-block">
                 <input type="number" class="quantity__input" value="1">
-                <button type="button" onclick="getProductData(event, ${product.id},'cart')" class="btn btn-danger btn-block mb-1">ADD TO CART</button>   
+                <button type="button" onclick="getProductData(event, ${product.id},'cart')" class="btn btn-danger btn-block mb-1">ADD TO CART</button>
                         &nbsp; &nbsp;
                 <i class="fa-regular fa-heart mb-2" onclick="getProductData(event,${product.id},'wishlist')"></i> &nbsp; &nbsp;
                 <i class="fa-solid  fa-arrow-right-arrow-left"></i>
@@ -827,7 +827,7 @@ function loadContent(category) {
     `;
       productList.appendChild(productElement);
     }
-    
+
   })
   .catch(error => console.error(error));
       break;
@@ -837,15 +837,15 @@ function loadContent(category) {
       .then(response => response.json())
       .then(data => {
         const productList = document.getElementById("product-list-2");
-    
+
         for (let i = 9; i < data.products.length-6; i++) {
-    
+
           const product = data.products[i];
-          
+
           // Create a new HTML element for each product and add it to the product list
-    
+
           const productElement = document.createElement("div");
-             
+
           productElement.innerHTML = `
           <a href="details.html?id=${product.id}">
                <div class=" card m-4" style="width:260px">
@@ -856,7 +856,7 @@ function loadContent(category) {
                 class="position-absolute top-10 start-100 translate-middle badge1  badge-danger">
                 -${product.tag}%
             </span>
-    
+
             <img src=${product.image} class="card-img-top" width="100%" height="300px"></a>
             <div class="card-body pt-0 px-0">
                 <div class="d-flex flex-row justify-content-between p-3 mid">
@@ -871,7 +871,7 @@ function loadContent(category) {
                 <p> $${product.price}&nbsp; &nbsp;&nbsp;&nbsp;<s>$${product.preprice}</s></p></div>
                 <div class=" add mt-3 d-block">
                     <input type="number" class="quantity__input" value="1">
-                    <button type="button" onclick="getProductData(event, ${product.id},'cart')" class="btn btn-danger btn-block mb-1">ADD TO CART</button>   
+                    <button type="button" onclick="getProductData(event, ${product.id},'cart')" class="btn btn-danger btn-block mb-1">ADD TO CART</button>
                             &nbsp; &nbsp;
                     <i class="fa-regular fa-heart mb-2" onclick="getProductData(event,${product.id},'wishlist')"></i> &nbsp; &nbsp;
                     <i class="fa-solid  fa-arrow-right-arrow-left"></i>
@@ -890,7 +890,7 @@ function loadContent(category) {
         `;
           productList.appendChild(productElement);
         }
-        
+
       })
       .catch(error => console.error(error));
       break;
@@ -900,15 +900,15 @@ function loadContent(category) {
       .then(response => response.json())
       .then(data => {
         const productList = document.getElementById("product-list-2");
-    
+
         for (let i = 15; i < data.products.length; i++) {
-    
+
           const product = data.products[i];
-          
+
           // Create a new HTML element for each product and add it to the product list
-    
+
           const productElement = document.createElement("div");
-             
+
           productElement.innerHTML = `
           <a href="details.html?id=${product.id}">
                <div class=" card m-4" style="width:260px">
@@ -919,7 +919,7 @@ function loadContent(category) {
                 class="position-absolute top-10 start-100 translate-middle badge1  badge-danger">
                 -${product.tag}%
             </span>
-    
+
             <img src=${product.image} class="card-img-top" width="100%" height="300px"></a>
             <div class="card-body pt-0 px-0">
                 <div class="d-flex flex-row justify-content-between p-3 mid">
@@ -934,7 +934,7 @@ function loadContent(category) {
                 <p> $${product.price}&nbsp; &nbsp;&nbsp;&nbsp;<s>$${product.preprice}</s></p></div>
                 <div class=" add mt-3 d-block">
                     <input type="number" class="quantity__input" value="1">
-                    <button type="button" onclick="getProductData(event, ${product.id},'cart')" class="btn btn-danger btn-block mb-1">ADD TO CART</button>   
+                    <button type="button" onclick="getProductData(event, ${product.id},'cart')" class="btn btn-danger btn-block mb-1">ADD TO CART</button>
                             &nbsp; &nbsp;
                     <i class="fa-regular fa-heart mb-2" onclick="getProductData(event,${product.id},'wishlist')"></i> &nbsp; &nbsp;
                     <i class="fa-solid  fa-arrow-right-arrow-left"></i>
@@ -953,7 +953,7 @@ function loadContent(category) {
         `;
           productList.appendChild(productElement);
         }
-        
+
       })
       .catch(error => console.error(error));
       break;
@@ -967,11 +967,11 @@ function loadContent(category) {
     for (let i = 6; i < data.products.length-9; i++) {
 
       const product = data.products[i];
-      
+
       // Create a new HTML element for each product and add it to the product list
 
       const productElement = document.createElement("div");
-         
+
       productElement.innerHTML = `
       <a href="details.html?id=${product.id}">
            <div class=" card m-4" style="width:260px">
@@ -997,7 +997,7 @@ function loadContent(category) {
             <p> $${product.price}&nbsp; &nbsp;&nbsp;&nbsp;<s>$${product.preprice}</s></p></div>
             <div class=" add mt-3 d-block">
                 <input type="number" class="quantity__input" value="1">
-                <button type="button" onclick="getProductData(event, ${product.id},'cart')" class="btn btn-danger btn-block mb-1">ADD TO CART</button>   
+                <button type="button" onclick="getProductData(event, ${product.id},'cart')" class="btn btn-danger btn-block mb-1">ADD TO CART</button>
                         &nbsp; &nbsp;
                 <i class="fa-regular fa-heart mb-2" onclick="getProductData(event,${product.id},'wishlist')"></i> &nbsp; &nbsp;
                 <i class="fa-solid  fa-arrow-right-arrow-left"></i>
@@ -1016,19 +1016,19 @@ function loadContent(category) {
     `;
       productList.appendChild(productElement);
     }
-    
+
   })
   .catch(error => console.error(error));
       break;
   }
 }
 
-//for default all category active 
+//for default all category active
 loadContent("all");
 
 
 
-// hover for index page 
+// hover for index page
 const allDepart = document.getElementById("all-depart");
 const subMenu = document.querySelector(".sub-menu");
 let isSubMenuHovered = false;
@@ -1086,7 +1086,7 @@ for (let i = 0; i < dropdownLinks.length; i++) {
       }
     }, 500);
   });
-  
+
   dropdownMenus[i].addEventListener('mouseenter', function() {
     isDropdownHovered = true;
   });

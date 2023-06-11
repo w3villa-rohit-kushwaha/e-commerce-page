@@ -1,4 +1,4 @@
-   
+
  let y =  document.getElementById("header-js")
  y.innerHTML =  `   <div class="unhideden container10">
 <nav class="navbar navbar-expand-lg navbar-light fs-5">
@@ -30,7 +30,7 @@
       </ul>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fa-regular fa-user"></i>Main Menu</a>
+          <a class="nav-link" href="#"><i class="fa-regular fa-user">&nbsp;</i>Main Menu</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#"><i class="fa-solid fa-truck"></i>&nbsp;&nbsp;Delivery</a>
@@ -38,8 +38,9 @@
       </ul>
     </div>
   </nav>
-  
-</div>   <div class="collapse navbar-collapse" id="navbarNav">
+
+</div>
+ <div class="collapse navbar-collapse" id="navbarNav">
   <ul class="navbar-nav mr-auto">
     <li class="nav-item">
       <a class="nav-link" href="#"><i class="fa-solid fa-house"></i>&nbsp;&nbsp;Home</a>
@@ -101,12 +102,12 @@
       <ul id="search-results"></ul>
     </div>
   </div>
-  
+
   <div class="col-md-3 iconcls mt-4">
     <div class="login-wishlist">
       <a id="login-id">
-        
-        
+
+
         <button class="none mb-3" id="myBtn"><i class="fa-solid fa-user"></i>Login </button>
 
            <div id="myModal" class="modal_lgsp">
@@ -123,11 +124,11 @@
                </div>
         </div>
 
-      
+
     </a>
     <a id="register-id">
-      
-        
+
+
         <button class="none mb-3" id="myBtn2"><i class="fa-solid fa-pencil"></i>Register</button>
 
            <div id="myModal2" class="modal_lgsp">
@@ -147,12 +148,12 @@
 
     <a id="username-display" style="display: none;"></a>
     <button id="logout-button" style="display: none;">Logout</button>
-       
+
         <a id="wishlist-link">
           <i class="fa-regular fa-heart"></i>
           <p>Wishlist</p>
       </a>
-      
+
       <div id="wishlist-modal" class="modal">
           <div class="modal-content">
               <span class="close">&times;</span>
@@ -160,7 +161,7 @@
               <p id ="Wishlist-item">Your wishlist items go here.</p>
           </div>
       </div>
-               
+
       <a>
         <i class="fa-solid fa-arrow-right-arrow-left"></i>
         <p>Compare</p>
@@ -171,14 +172,14 @@
   <!-- 4.cart and price detils -->
 
   <div class=" col-lg-3 cart-price">
-   <div>$0-0.00 </div>
+  <div>$0 &nbsp;-&nbsp;0.00 &nbsp;</div>
       <div class="cart-icon">
           <a><div id="additems"></div>
             <a href="#cart" class="btn btn-primary mb-8 btncart" data-bs-toggle="modal" data-bs-target="#cartModal">
-                
+
                <div class="fa-solid fa-cart-shopping"></div>
               </a>
-              
+
               <!-- Modal -->
               <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-end">
@@ -194,14 +195,16 @@
                   </div>
                 </div>
               </div>
-            
-              
+
+
           </a>
       </div>
   </div>
 </div>
 </div>
 </section>
+
+
 
 
 <div id="container" class="fixed-bottom-navbar mr-4">
@@ -273,7 +276,7 @@
           <a href="#" class="dropdown-link"><h6 class="depart1">Shop by Brands &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;<i class="fa-solid fa-caret-right"></i></h6></a>
           <div class="dropdown-menu">
           <div class="category-div-dropdown">
-            
+
              <div class="brand-item">
                 <h5>Apple</h5>
                 <p>Computers, Laptops, Smartphones & Tablets</p>
@@ -292,7 +295,7 @@
              </div>
           </div>
           <div class="category-div-dropdown">
-            
+
              <div class="brand-item">
                 <h5>Adidas</h5>
                 <p>Sneakers, Sportswear, and Accessories</p>
@@ -370,7 +373,7 @@
           <a href="#" class="dropdown-link"><h6 class="depart1">Best Sellers&nbsp; &nbsp; &nbsp;<i class="fa-solid fa-caret-right"></i></h6></a>
           <div class="dropdown-menu">
           <div class="category-div-dropdown">
-            
+
              <div class="brand-item">
                 <h5>Apple</h5>
                 <p>Computers, Laptops, Smartphones & Tablets</p>
@@ -389,7 +392,7 @@
              </div>
           </div>
           <div class="category-div-dropdown">
-            
+
              <div class="brand-item">
                 <h5>Adidas</h5>
                 <p>Sneakers, Sportswear, and Accessories</p>
@@ -415,19 +418,19 @@
           <div><h4>Fashion</h4>
           <img src="img/fashion/saree.jpeg" height="150px" width="110px">
           <div class="category-item">Women's Clothing</div>
-         
+
           </div>
 
           <div><h4>Beauty</h4>
           <img src="img/beauty/nailpolish.jpg" height="150px" width="110px">
             <div class="category-item">Makeup</div>
-           
+
           </div>
 
           <div><h4>Electronics</h4>
           <img src="img/electronics/mouse.jpeg" height="150px" width="110px">
           <div class="category-item">Computers & Laptops</div>
-         
+
         </div>
 
           </div>
@@ -437,17 +440,17 @@
           <div><h4>Health</h4>
           <img src="img/fashion.jpeg" height="150px" width="110px">
             <div class="category-item">Vitamins & Supplements</div>
-           
+
           </div>
           <div><h4>Footwear</h4>
           <img src="img/fashion/saree.jpeg" height="150px" width="110px">
             <div class="category-item">Sneakers</div>
-           
+
           </div>
           <div><h4>Home Decor</h4>
           <img src="img/electronics/fridge.jpg" height="150px" width="110px">
             <div class="category-item">Wall Art</div>
-           
+
           </div>
           </div>
          </div>
@@ -458,7 +461,7 @@
       <div class= "mega-menu-container">
         <a>
           <p>multilevel</p>
-          
+
         </a>
       </div>
       <div class="mega-menu-container">
@@ -505,7 +508,7 @@
               </a>
           </div>
           <div class="nav-item">
-              
+
               <a class="nav-link " href="#">
                   <i class="fa-solid fa-pen"></i>
                   Register
@@ -535,7 +538,7 @@
                   <li><a class="dropdown-item" href="#">🇮🇳 Hindi</a></li>
               </ul>
           </div>
-          
+
       </div>
   </div>
 

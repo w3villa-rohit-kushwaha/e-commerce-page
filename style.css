@@ -72,8 +72,8 @@ transform-origin: top right;
 }
 input[type='number']{
 width: 40px;
-} 
-input[type=number]::-webkit-inner-spin-button, 
+}
+input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
 opacity: 1;
 }
@@ -98,19 +98,19 @@ opacity: 1;
         justify-content: center;
         margin-top: 20px;
       }
-      
+
       label {
         font-size: 20px;
         margin-right: 10px;
       }
-      
+
       input[type="text"] {
         padding: 10px;
         border: 1px solid #ccc;
         border-radius: 4px;
         font-size: 16px;
       }
-      
+
       button {
         padding: 10px;
         background-color: #1d10cf;
@@ -120,11 +120,11 @@ opacity: 1;
         cursor: pointer;
         font-size: 16px;
       }
-      
+
       button:hover {
         background-color: #6261c9;
       }
-      
+
       #results {
         margin-top: 20px;
       }
@@ -144,7 +144,7 @@ opacity: 1;
         /* display: flex; */
         flex-wrap: wrap;
       }
-     
+
 .feature{
     margin-top: 2%;
 }
@@ -161,7 +161,7 @@ opacity: 1;
     margin-top: 2%;
     margin-bottom: 2%;
   }
-  
+
   .icon-circle {
     background-color: #2c0707;
     border-radius: 50%;
@@ -172,8 +172,8 @@ opacity: 1;
     align-items: center;
     justify-content: center;
   }
-  
-  
+
+
 .yellow{
     background-color: rgb(253, 249, 10);
      padding: 35px 0px 35px 0px;
@@ -193,7 +193,7 @@ ul li{
 
         color: #fff;
         padding: 35px 0px 35px 0px;
-    
+
 }
 
 .middle{
@@ -202,10 +202,12 @@ ul li{
     margin-bottom: 2%;
 }
 
-.carousel-item img{
-    object-fit: cover;
-    height: 67vh;
-   
+.carousel-item img {
+  object-fit: cover;
+  height: 52vh;
+  border-radius: 15px;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 .text-over-card-image{
@@ -226,7 +228,7 @@ ul li{
 
 .carousel-caption {
   position: absolute;
-  top: 50%;
+  top: 30%;
   left: 50%;
   transform: translate(-120%, -5%);
   max-width: 100%;
@@ -258,7 +260,7 @@ ul li{
   .carousel-caption button {
     font-size: 14px;
     padding: 10px 20px;
-  } 
+  }
 }
 
 @media (max-width: 1772px) {
@@ -307,13 +309,7 @@ ul li{
     max-width: 100%;
     margin-left: -18%;
   }
-  .button1 {
-    margin-left: -58%;
-    margin-bottom: 2%;
-  }
-  .button2 {
-    margin-left: -40%;
-  }
+
 }
 .paragraph{
   padding-top: 40px;
@@ -353,7 +349,7 @@ ul li{
 
 
 @media (max-width: 767px) {
-  
+
    .carousel-caption h1 {
     font-size: 28px;
   }
@@ -364,11 +360,11 @@ ul li{
   .carousel-caption button {
     font-size: 14px;
     padding: 10px 20px;
-  } 
+  }
 }
 
 @media (max-width: 1772px) {
-  
+
   .carousel-caption  {
     display: block !important;
     position: absolute;
@@ -386,8 +382,8 @@ ul li{
 .button2{
   margin-left:-61%;
   margin-top: 4%;
-  
-  
+
+
 }
 
 
@@ -403,7 +399,7 @@ ul li{
   background-repeat: no-repeat;
   background-size: cover;
   margin-top: 8%;
-  
+
 }
 .slidee.slide2 {
   background: url(img/smartwatch.jpg);
@@ -412,14 +408,17 @@ ul li{
   background-size: cover;
 }
 .container .slidee.slide1{
-  margin-top: 5%;
-  height: 30vh;
+  margin-top: 37px;
+  height: 23vh;
   background-color: rgb(209, 209, 218);
+  border-radius: 15px;
 }
 .container .slidee.slide2{
-  height: 31vh;
+  height: 23vh;
   margin-top: 10%;
   background-color: rgb(229, 229, 245);
+  border-radius: 15px;
+
 }
 footer {
   display: flex;
@@ -471,7 +470,9 @@ footer div ul li a {
   text-decoration: none;
 }
 
-
+.container5{
+  margin-left: 10px;
+}
 
 
 .most-viewed {
@@ -590,7 +591,7 @@ footer div p a {
   }
   footer div {
       width: 300px;
-      
+
   }
 
 
@@ -656,7 +657,7 @@ footer div p a {
   }
 }
 @media (max-width: 767px) {
- 
+
   .services-container
   {
     padding-left: 100px !important;
@@ -684,8 +685,6 @@ footer div p a {
   background-color: #404b62;
   padding-top: 15px;
   margin-top: 1%;
-
-  padding-bottom: 15px;
 }
 
 .services-container .free-shiping-container .icon-container {
@@ -843,7 +842,7 @@ footer div p a {
  #unknown{
   display: none !important;
  }
-  
+
 }
 #product-list-4.d-flex{
   display: flex;
@@ -881,7 +880,7 @@ footer div p a {
     .sec1{
         display: block;
     }
-    
+
 }
 @media screen and (max-width:620px) {
     .plr{
@@ -909,7 +908,7 @@ footer div p a {
 @media(max-width:770px){
   .unhideden{
     display: none !important;
-  } 
+  }
 }
 @media(max-width:770px){
   #product-list-4.d-flex{
@@ -947,8 +946,8 @@ footer div p a {
   position: relative;
   padding-left: 40px;
   z-index: 1;
- 
-  
+
+
 }
 
 .cart-price {
@@ -962,11 +961,11 @@ footer div p a {
 .cart-price .cart-icon {
   width: 65px;
   height: 56px;
-  background-color: #0d51d6;
+  /* background-color: #0d51d6; */
   display: flex;
   justify-content: center;
   flex-direction: column;
-
+  /* margin-top: -29px; */
   border-radius: 8px;
   align-items: center;
 }
@@ -1000,7 +999,7 @@ footer div p a {
 }
 .totalItem{
   border-radius: 50%;
-  
+
 
   height: 35px;
   width: 35px;
@@ -1036,10 +1035,10 @@ footer div p a {
 /* Modal Content/Box */
 .modal-content_lgsp {
   background-color: #fefefe;
-  margin: 15% auto; 
+  margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 50%; 
+  width: 50%;
 }
 
 /* The Close Button */
@@ -1083,7 +1082,7 @@ footer div p a {
   border: 1px solid #888;
   width: 240%;
   max-width: 900px;
-  
+
 }
 
 /* Close button */
@@ -1246,7 +1245,7 @@ hr {
   background-color:#dfdfe0;
   text-transform: uppercase;
   font-weight: bold;
-  padding: 25px 35px; 
+  padding: 25px 35px;
   color: #514f4f;
 
   font-size: 12px;
@@ -1340,7 +1339,7 @@ hr {
   body{
     overflow-x: hidden;
   }
- 
+
 }
 @media(max-width:1500px)
 {
@@ -1366,7 +1365,7 @@ position: absolute;
 #search-results li{
   background-color: #dee5ee;
   padding-left: 30px;
-  padding-right: 360px;
+  padding-right: 190px;
 }
 .input-group {
   width: 80% !important;
@@ -1479,8 +1478,16 @@ position: absolute;
   color: #f5240c;
 }
 .btncart {
-  margin-top: -16%;
+  margin-top: -43%;
 }
 img.card-img-top {
   object-fit: cover;
+}
+
+@media (max-width: 1349px)
+{
+.button1 {
+    margin-left: -16%;
+    margin-bottom: 2%;
+}
 }
